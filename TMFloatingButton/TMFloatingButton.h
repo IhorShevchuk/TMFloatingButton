@@ -106,6 +106,11 @@ typedef enum {
  *  @param button Button to set
  */
 + (void)addModeEditStyleToButton:(TMFloatingButton *)button;
+/**
+ *  Applies Message Style to Button
+ *
+ *  @param button Button to set
+ */
 + (void)addMessageStyleToButton:(TMFloatingButton *)button;
 
 
