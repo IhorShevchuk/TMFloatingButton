@@ -76,7 +76,6 @@
     [floatingButton animateActivityIndicatorStart:YES];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         sleep(1);
-        [floatingButton animateActivityIndicatorStart:NO];
         added = !added;
         if(added)
         {
@@ -86,6 +85,7 @@
         {
             [floatingButton setButtonState:@"notSaved"];
         }
+        [floatingButton animateActivityIndicatorStart:NO];
     });
 }
 #pragma mark  UIScrollViewDelegate

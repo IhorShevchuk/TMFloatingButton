@@ -121,7 +121,6 @@
         else {
             self.layer.cornerRadius = 0.0;
         }
-        // self.clipsToBounds = YES;
         _isRounded = isRounded;
     }
 }

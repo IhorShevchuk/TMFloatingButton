@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		847AD1881A8B572E004E0798 /* favorites1.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1841A8B572E004E0798 /* favorites1.png */; };
+		847AD1891A8B572E004E0798 /* favorites2.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1851A8B572E004E0798 /* favorites2.png */; };
+		847AD18A1A8B572E004E0798 /* modeEdit.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1861A8B572E004E0798 /* modeEdit.png */; };
+		847AD18B1A8B572E004E0798 /* newMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1871A8B572E004E0798 /* newMessage.png */; };
 		847E39891A8A9A4B00893FC2 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 847E39881A8A9A4B00893FC2 /* screen.png */; };
 		8484DB461A8A089B004C4E5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB451A8A089B004C4E5E /* main.m */; };
 		8484DB491A8A089B004C4E5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB481A8A089B004C4E5E /* AppDelegate.m */; };
@@ -30,6 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		847AD1841A8B572E004E0798 /* favorites1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites1.png; sourceTree = "<group>"; };
+		847AD1851A8B572E004E0798 /* favorites2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites2.png; sourceTree = "<group>"; };
+		847AD1861A8B572E004E0798 /* modeEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modeEdit.png; sourceTree = "<group>"; };
+		847AD1871A8B572E004E0798 /* newMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newMessage.png; sourceTree = "<group>"; };
 		847E39881A8A9A4B00893FC2 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen.png; sourceTree = "<group>"; };
 		8484DB401A8A089B004C4E5E /* FloatingButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatingButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8484DB441A8A089B004C4E5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +112,10 @@
 		8484DB431A8A089B004C4E5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				847AD1841A8B572E004E0798 /* favorites1.png */,
+				847AD1851A8B572E004E0798 /* favorites2.png */,
+				847AD1861A8B572E004E0798 /* modeEdit.png */,
+				847AD1871A8B572E004E0798 /* newMessage.png */,
 				847E39881A8A9A4B00893FC2 /* screen.png */,
 				8484DB441A8A089B004C4E5E /* Info.plist */,
 				8484DB451A8A089B004C4E5E /* main.m */,
@@ -220,9 +232,13 @@
 			files = (
 				8484DB4F1A8A089B004C4E5E /* Main.storyboard in Resources */,
 				847E39891A8A9A4B00893FC2 /* screen.png in Resources */,
+				847AD18A1A8B572E004E0798 /* modeEdit.png in Resources */,
 				8484DB541A8A089B004C4E5E /* LaunchScreen.xib in Resources */,
+				847AD1891A8B572E004E0798 /* favorites2.png in Resources */,
 				8484DB511A8A089B004C4E5E /* Images.xcassets in Resources */,
+				847AD18B1A8B572E004E0798 /* newMessage.png in Resources */,
 				8484DB711A8A157A004C4E5E /* buttonImages.xcassets in Resources */,
+				847AD1881A8B572E004E0798 /* favorites1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
