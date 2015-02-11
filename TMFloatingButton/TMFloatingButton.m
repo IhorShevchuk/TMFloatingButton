@@ -107,6 +107,8 @@
             buttonStates = [[NSMutableDictionary alloc]init];
         }
         
+        [self setBackgroundImage:[UIImage imageNamed:@"selectorImage"] forState:UIControlStateHighlighted];
+        
         [self addAsSubviewToView:superView];
     }
     return self;
@@ -196,7 +198,7 @@
     else {
         [activityIndicator stopAnimating];
         [self addSubview:curState.view];
-    }
+    };
 }
 - (void)addState:(TMFloatingButtonState *)state forName:(NSString *)stateName {
     if (state && stateName)
