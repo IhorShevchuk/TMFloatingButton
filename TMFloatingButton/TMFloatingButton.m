@@ -212,7 +212,6 @@
     {
         [curState.view removeFromSuperview];
         curState = stateToSet;
-        
         if (curState.view)
         {
             [self addSubview:curState.view];
