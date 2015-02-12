@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class TMFloatingButton;
 @interface TMFloatingButtonState : NSObject
 /**
  *  State(style) object of TMFloatingButton. State shoud have the same size(bounds) as TMFloatingButton
@@ -17,7 +17,48 @@
  *
  *  @return inited TMFloatingButtonState object
  */
-- (id)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor;
+- (id)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor DEPRECATED_ATTRIBUTE;
+/**
+ *  State(style) object of TMFloatingButton.
+ *
+ *  @param view    Custom view:labels,images combinations
+ *  @param bgColor Background color
+ *  @param button  The TMFloatingButton object for that state is being created
+ *
+ *  @return inited TMFloatingButtonState object
+ */
+- (id)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+/**
+ *  State(style) object of TMFloatingButton.
+ *
+ *  @param text    Text for state
+ *  @param bgColor Background color
+ *  @param button  The TMFloatingButton object for that state is being created
+ *
+ *  @return inited TMFloatingButtonState object
+ */
+- (id)initWithText:(NSString *)text andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+/**
+ *  State(style) object of TMFloatingButton.
+ *
+ *  @param icon    Icon that will be in center on the button
+ *  @param bgColor Background color
+ *  @param button  The TMFloatingButton object for that state is being created
+ *
+ *  @return inited TMFloatingButtonState object
+ */
+- (id)initWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+/**
+ *  State(style) object of TMFloatingButton.
+ *
+ *  @param icon    Icon that will be in center on the button
+ *  @param text    Text for state will be located under icon
+ *  @param bgColor Background color
+ *  @param button  The TMFloatingButton object for that state is being created
+ *
+ *  @return inited TMFloatingButtonState object
+ */
+- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
 @property (nonatomic, readonly, strong) UIView *view;
 @property (nonatomic, readonly, strong) UIColor *bgColor;
 @end
@@ -87,6 +128,13 @@ typedef enum {
  *  @param stateName State Name to SET this state in other method
  */
 - (void)addState:(TMFloatingButtonState *)state forName:(NSString *)stateName;
+/**
+ *  Adds state(style) of Button and apply it immediately
+ *
+ *  @param state     FloatingButtonState object
+ *  @param stateName State Name to SET this state in other method
+ */
+- (void)addAndApplyState:(TMFloatingButtonState *)state forName:(NSString *)stateName;
 /**
  *  Sets state with next name
  *

@@ -19,6 +19,74 @@
     
     return self;
 }
+- (id)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+    self = [super init];
+    if (self)
+    {
+        _view = view;
+        [_view setFrame:button.bounds];
+        _bgColor = bgColor;
+    }
+    return self;
+}
+- (id)initWithText:(NSString *)text andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+    self = [self initWithIcon:nil andText:text andBackgroundColor:bgColor forButton:button];
+    return self;
+}
+- (id)initWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button
+{
+    self = [self initWithIcon:icon andText:nil andBackgroundColor:bgColor forButton:button];
+    return self;
+}
+- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+    CGFloat margin = 15;
+    UIView *stateView = [[UIView alloc]initWithFrame:button.bounds];
+    if(text != nil && icon != nil)
+    {
+        UIImageView *stateIcon = [[UIImageView alloc]initWithFrame:CGRectMake(margin, margin, button.frame.size.width - 2 * margin, button.frame.size.height - 2 * margin)];
+        stateIcon.image = icon;
+        
+        CGRect imageFrame = stateIcon.frame;
+        imageFrame.origin.y = 9;
+        stateIcon.frame = imageFrame;
+        
+        //TODO: add text attributes
+        UILabel *stateLabel;
+        stateLabel = [[UILabel alloc]initWithFrame:CGRectMake(stateIcon.frame.origin.x, CGRectGetMaxY(stateIcon.frame) - 1.0, stateIcon.frame.size.width, 10)];
+        stateLabel.text = text;
+        stateLabel.font = [UIFont systemFontOfSize:10];
+        stateLabel.minimumScaleFactor = 0.5;
+        stateLabel.textAlignment = NSTextAlignmentCenter;
+        stateLabel.textColor = [UIColor whiteColor];
+        
+        [stateView addSubview:stateIcon];
+        [stateView addSubview:stateLabel];
+    }
+    else if(text != nil)
+    {
+        //TODO: add text attributes
+        margin = 3.0;
+        UILabel *stateLabel;
+        stateLabel = [[UILabel alloc]initWithFrame:CGRectMake(margin,(stateView.frame.size.height - 40) / 2.0, stateView.frame.size.width - 2.0 * margin, 40)];
+        stateLabel.text = text;
+        stateLabel.font = [UIFont systemFontOfSize:12];
+        stateLabel.minimumScaleFactor = 0.5;
+        stateLabel.textAlignment = NSTextAlignmentCenter;
+        stateLabel.textColor = [UIColor whiteColor];
+        stateLabel.numberOfLines = 0;
+        [stateView addSubview:stateLabel];
+    }
+    else if(icon != nil)
+    {
+        margin = 13;
+        UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(margin, margin, button.frame.size.width - 2 * margin, button.frame.size.height - 2 * margin)];
+        iconView.image = icon;
+        [stateView addSubview:iconView];
+    }
+    stateView.userInteractionEnabled = NO;
+    self = [self initWithView:stateView andBackgroundColor:bgColor forButton:button];
+    return self;
+}
 @end
 
 
@@ -198,13 +266,18 @@
     else {
         [activityIndicator stopAnimating];
         [self addSubview:curState.view];
-    };
+    }
 }
 - (void)addState:(TMFloatingButtonState *)state forName:(NSString *)stateName {
     if (state && stateName)
     {
         [buttonStates setObject:state forKey:stateName];
     }
+}
+- (void)addAndApplyState:(TMFloatingButtonState *)state forName:(NSString *)stateName
+{
+    [self addState:state forName:stateName];
+    [self setButtonState:stateName];
 }
 - (void)setButtonState:(NSString *)name {
     TMFloatingButtonState *stateToSet = [buttonStates objectForKey:name];
@@ -225,55 +298,24 @@
 #pragma mark - styles
 + (void)addFavoritesStyleToButton:(TMFloatingButton *)button {
     //NOT SAVED
-    CGFloat margin = 15;
-    UIImageView *addToFavoritesNotSavedImage = [[UIImageView alloc]initWithFrame:CGRectMake(margin, margin, button.frame.size.width - 2 * margin, button.frame.size.height - 2 * margin)];
-    addToFavoritesNotSavedImage.image = [UIImage imageNamed:@"white-star"];
-    
-    TMFloatingButtonState *notSaved = [[TMFloatingButtonState alloc] initWithView:addToFavoritesNotSavedImage andBackgroundColor:[UIColor colorWithRed:0.662 green:0.088 blue:0.719 alpha:0.800]];
+    TMFloatingButtonState *notSaved = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"white-star"] andBackgroundColor:[UIColor colorWithRed:0.662 green:0.088 blue:0.719 alpha:0.800] forButton:button];
     
     //SAVED
-    UIView *isSavedIView = [[UIView alloc]initWithFrame:button.bounds];
-    UIImageView *addToFavoritesSavedImage = [[UIImageView alloc]initWithFrame:CGRectMake(margin, margin, button.frame.size.width - 2 * margin, button.frame.size.height - 2 * margin)];
-    addToFavoritesSavedImage.image = [UIImage imageNamed:@"checkmark-white"];
-    
-    CGRect imageFrame = addToFavoritesSavedImage.frame;
-    imageFrame.origin.y = 9;
-    addToFavoritesSavedImage.frame = imageFrame;
-    
-    UILabel *savedLabelForAddToFavoritesButton;
-    savedLabelForAddToFavoritesButton = [[UILabel alloc]initWithFrame:CGRectMake(addToFavoritesNotSavedImage.frame.origin.x, CGRectGetMaxY(addToFavoritesNotSavedImage.frame) - 3.0, addToFavoritesNotSavedImage.frame.size.width, 10)];
-    savedLabelForAddToFavoritesButton.text = NSLocalizedString(@"Saved", @"Saved");
-    savedLabelForAddToFavoritesButton.font = [UIFont systemFontOfSize:10];
-    savedLabelForAddToFavoritesButton.minimumScaleFactor = 0.5;
-    savedLabelForAddToFavoritesButton.textAlignment = NSTextAlignmentCenter;
-    savedLabelForAddToFavoritesButton.textColor = [UIColor whiteColor];
-    
-    [isSavedIView addSubview:addToFavoritesSavedImage];
-    [isSavedIView addSubview:savedLabelForAddToFavoritesButton];
-    isSavedIView.userInteractionEnabled = NO;
-    
-    TMFloatingButtonState *saved = [[TMFloatingButtonState alloc]initWithView:isSavedIView andBackgroundColor:[UIColor colorWithRed:0.101 green:0.510 blue:0.133 alpha:0.800]];
+    TMFloatingButtonState *saved = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"checkmark-white"] andText:NSLocalizedString(@"Saved", @"Saved") andBackgroundColor:[UIColor colorWithRed:0.101 green:0.510 blue:0.133 alpha:0.800] forButton:button];
     
     [button addState:notSaved forName:@"notSaved"];
     [button addState:saved forName:@"saved"];
 }
 + (void)addModeEditStyleToButton:(TMFloatingButton *)button {
-    CGFloat margin = 15;
-    UIImageView *addToFavoritesNotSavedImage = [[UIImageView alloc]initWithFrame:CGRectMake(margin, margin, button.frame.size.width - 2 * margin, button.frame.size.height - 2 * margin)];
-    addToFavoritesNotSavedImage.image = [UIImage imageNamed:@"white-mode-edit"];
-    
-    TMFloatingButtonState *statickStyle = [[TMFloatingButtonState alloc] initWithView:addToFavoritesNotSavedImage andBackgroundColor:[UIColor colorWithRed:0.792 green:0.169 blue:0.149 alpha:1.000]];
+    TMFloatingButtonState *statickStyle = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"white-mode-edit"] andBackgroundColor:[UIColor colorWithRed:0.792 green:0.169 blue:0.149 alpha:1.000] forButton:button];
     [button addState:statickStyle forName:@"statickStyle"];
     
     [button setButtonState:@"statickStyle"];
 }
-+ (void)addMessageStyleToButton:(TMFloatingButton *)button
-{
-    CGFloat margin = 15;
-    UIImageView *addToFavoritesNotSavedImage = [[UIImageView alloc]initWithFrame:CGRectMake(margin, margin, button.frame.size.width - 2 * margin, button.frame.size.height - 2 * margin)];
-    addToFavoritesNotSavedImage.image = [UIImage imageNamed:@"message_grey"];
++ (void)addMessageStyleToButton:(TMFloatingButton *)button {
+    TMFloatingButtonState *statickStyle = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"message_grey"] andBackgroundColor:[UIColor whiteColor] forButton:button];
     
-    TMFloatingButtonState *statickStyle = [[TMFloatingButtonState alloc] initWithView:addToFavoritesNotSavedImage andBackgroundColor:[UIColor whiteColor]];
+    
     [button addState:statickStyle forName:@"staticStyle"];
     
     [button setButtonState:@"staticStyle"];

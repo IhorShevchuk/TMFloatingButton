@@ -38,12 +38,12 @@
 }
 #pragma mark - NewMessageButton
 - (void)createNewMessageButton
-{    floatingNewMessageButton = [[TMFloatingButton alloc]initWithWidth:addToFavoritesHeight withMargin:addToFavoritesmargin andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:self.navigationController.view];
+{
+    floatingNewMessageButton = [[TMFloatingButton alloc]initWithWidth:addToFavoritesHeight withMargin:addToFavoritesmargin andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:self.navigationController.view];
     
     [TMFloatingButton addMessageStyleToButton:floatingNewMessageButton];
     
     [floatingNewMessageButton addTarget:self action:@selector(newMessageButtonAction) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 - (void)newMessageButtonAction
 {
@@ -54,7 +54,10 @@
 {
     floatingModeEditButton = [[TMFloatingButton alloc]initWithWidth:addToFavoritesHeight withMargin:addToFavoritesmargin andPosition:FloatingButtonPositionBottomLeft andHideDirection:FloatingButtonHideDirectionDown andSuperView:self.navigationController.view];
     
-    [TMFloatingButton addModeEditStyleToButton:floatingModeEditButton];
+    //[TMFloatingButton addModeEditStyleToButton:floatingModeEditButton];
+    TMFloatingButtonState *customText =  [[TMFloatingButtonState alloc]initWithText:@"Custom text" andBackgroundColor:[UIColor colorWithRed:0.792 green:0.169 blue:0.149 alpha:1.000] forButton:floatingModeEditButton];
+    
+    [floatingModeEditButton addAndApplyState:customText forName:@"CustomStateText"];
     
     [floatingModeEditButton addTarget:self action:@selector(modeEditAction) forControlEvents:UIControlEventTouchUpInside];
 }
