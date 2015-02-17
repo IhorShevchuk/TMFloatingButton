@@ -11,8 +11,7 @@ With this simple project you can add and design your material round button like 
 ## Usage
 1) In some method (ex:`viewDidLoad`) init `TMFloatingButton` object and add it to view where it should appear using next code:
 ```objectivec
-  TMFloatingButton *floatingModeEditButton = [[TMFloatingButton alloc]initWithWidth:addToFavoritesHeight withMargin:addToFavoritesmargin 
-  andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:self.navigationController.view];
+  TMFloatingButton *floatingModeEditButton = [[TMFloatingButton alloc] initWithSuperView: self.navigationController.view];
 ```
 2) Apply one of predifined styles using next code:
 ```objectivec
