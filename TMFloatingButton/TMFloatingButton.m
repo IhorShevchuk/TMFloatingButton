@@ -306,7 +306,7 @@
 }
 - (void)addStateWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow
 {
-    TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithIcon:icon andText:text withAttributes:@{} andBackgroundColor:bgColor forButton:self];
+    TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithIcon:icon andText:text withAttributes:attributes andBackgroundColor:bgColor forButton:self];
     [self addState:newState forName:stateName];
     if(applyNow)
     {
@@ -315,7 +315,7 @@
 }
 - (void)addStateWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow
 {
-    TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithText:text withAttributes:@{} andBackgroundColor:bgColor forButton:self];
+    TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithText:text withAttributes:attributes andBackgroundColor:bgColor forButton:self];
     [self addState:newState forName:stateName];
     if(applyNow)
     {
