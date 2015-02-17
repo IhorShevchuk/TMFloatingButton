@@ -9,7 +9,7 @@ With this simple project you can add and design your material round button like 
 2) Import file `TMFloatingButton.h` to files where buttons will be shown
 
 ## Usage
-1) In some method ex:`viewDidLoad` init `TMFloatingButton` object and add it to subview where it should appear using next code:
+1) In some method (ex:`viewDidLoad`) init `TMFloatingButton` object and add it to view where it should appear using next code:
 ```objectivec
   TMFloatingButton *floatingModeEditButton = [[TMFloatingButton alloc]initWithWidth:addToFavoritesHeight withMargin:addToFavoritesmargin 
   andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:self.navigationController.view];
@@ -30,34 +30,36 @@ For now you can use next styles
 
 ![](https://raw.github.com/IhorShevchuk/TMFloatingButton/master/FloatingButton/favorites1.png) ![](https://raw.github.com/IhorShevchuk/TMFloatingButton/master/FloatingButton/favorites2.png)
 
-- _Mode Edit Style_  -     Red button with pen(like gmail)
+- _Mode Edit Style_  -     Red button with pen
 
 ![](https://raw.github.com/IhorShevchuk/TMFloatingButton/master/FloatingButton/modeEdit.png)
 
-- _Message Style_  -  New message button like in SMS app
+- _Message Style_  -  New message button
 
 ![](https://raw.github.com/IhorShevchuk/TMFloatingButton/master/FloatingButton/newMessage.png)
 #####How can I design my own?
+You can use one of next methods to create your own style 
+- To add state with text use next code:
+```objectivec
+    [customTextButton addStateWithText:@"Custom text" withAttributes:textAttributesDictionary andBackgroundColor:bgColor forName:@"CustomTextState" applyRightNow:YES];
+```
+- To add state with icon use next code
+```objectivec
+    [customIconButton addStateWithIcon:[UIImage imageNamed:@"icon-image"] andBackgroundColor:bgColor forName:@"CustomIconState" applyRightNow:NO];
+```
+- To add state with icon and text use next code
+```objectivec
+   [customIconAndTextButton addStateWithIcon:[UIImage imageNamed:@"icon-image"] andText:@"Custom text" withAttributestextAttributesDictionary andBackgroundColor:bgColor forName:@"CustomTextAndIconState" applyRightNow:NO];
+```
+- Or you can design your own UIView and set using next code
+```objectivec
+    [customViewButton addStateWithView:customView andBackgroundColor:bgColor forName:@"CustomViewState" applyRightNow:YES];
+```
+######About ApplyRightNow and TextAttributesDictionary parameters
+- BOOL parameter ApplyRightNow is using when you need set this state immediatly after adding state
+- TextAttributesDictionary is NSDictionary of text attributes (ex:`NSFontAttributeName`,`NSForegroundColorAttributeName`)
 
-1) Create a `UIView` with the same size as `TMFloatingButton` 
-
-2) Add to it(`UIView`) `UILabels`,`UIImageViews` etc.
-
-3) Init `TMFloatingButtonState` object using next code
-
-  ```objectivec
-  TMFloatingButtonState *myState = [[TMFloatingButtonState alloc]initWithView:StateView andBackgroundColor:ColorForThisState];
-  ```
-Where `StateView` is `UIView` and `ColorForThisState` is `UIColor` objects.
-
-4) Add this state to your `TMFloatingButton` object with state's name
-  ```objectivec
- [button addState:myState forName:@"myState"];
-  ```
-5) Apply this state for the button
-  ```objectivec
- [button setButtonState:@"myState"];
-  ```
+for now you can apply only `NSFontAttributeName`,`NSForegroundColorAttributeName` in next version we add more text attributes
   
 #####Why I need to create `TMFloatingButtonState`s?
 Sometimes button can change states during the app runing. 
