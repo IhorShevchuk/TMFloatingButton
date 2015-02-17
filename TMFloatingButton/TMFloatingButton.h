@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#define ButtonDefaultSize 60
+#define ButtonDefaultMargin 15
 @class TMFloatingButton;
 @interface TMFloatingButtonState : NSObject
 /**
@@ -37,7 +39,7 @@
  *
  *  @return inited TMFloatingButtonState object
  */
-- (id)initWithText:(NSString *)text andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+- (id)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
 /**
  *  State(style) object of TMFloatingButton.
  *
@@ -58,7 +60,8 @@
  *
  *  @return inited TMFloatingButtonState object
  */
-- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+
 @property (nonatomic, readonly, strong) UIView *view;
 @property (nonatomic, readonly, strong) UIColor *bgColor;
 @end
@@ -96,6 +99,36 @@ typedef enum {
  */
 - (id)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andHideDirection:(FloatingButtonHideDirection)hideDirection andSuperView:(UIView *)superView;
 /**
+ *  init's TMFloatingButton object after this you can apply styles
+ *
+ *  @param superView UIView where Button will be shown
+ *
+ *  @return Inited and Added to superView TMFloatingButton object
+ */
+- (id)initWithSuperView:(UIView *)superView;
+/**
+ *  init's TMFloatingButton object after this you can apply styles
+ *
+ *  @param width     Float value width and heigth of Button, Button is square
+ *  @param margin    Margin from sides of Superview
+ *  @param superView UIView where Button will be shown
+ *
+ *  @return Inited and Added to superView TMFloatingButton object
+ */
+- (id)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andSuperView:(UIView *)superView;
+/**
+ *  init's TMFloatingButton object after this you can apply styles
+ *
+ *  @param width     Float value width and heigth of Button, Button is square
+ *  @param margin    Margin from sides of Superview
+ *  @param postion   Position of Button. It can be located in one of four corners
+ *  @param superView UIView where Button will be shown
+ *
+ *  @return Inited and Added to superView TMFloatingButton object
+ */
+- (id)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion postionandSuperView:(UIView *)superView;
+
+/**
  *  Set this property to NO if need Square button, or YES to Round Button
  */
 @property (assign, nonatomic) BOOL isRounded;
@@ -127,7 +160,48 @@ typedef enum {
  *  @param state     FloatingButtonState object
  *  @param stateName State Name to SET this state in other method
  */
+#pragma mark - STATES MANAGEMENT
 - (void)addState:(TMFloatingButtonState *)state forName:(NSString *)stateName;
+
+/**
+ *  Creates TMFloatingButtonState object and applies if need
+ *
+ *  @param icon       Icon that will be in center on the button
+ *  @param text       Text for state will be located under icon
+ *  @param attributes Text attributes(ex. font size,color et.)
+ *  @param bgColor    Background color
+ *  @param stateName  State Name to SET this state in other method
+ *  @param applyNow   YES if apply state immediatly or NO to not
+ */
+- (void)addStateWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow;
+/**
+ *  Creates TMFloatingButtonState object and applies if need
+ *
+ *  @param text       Text for state
+ *  @param attributes Text attributes(ex. font size,color et.)
+ *  @param bgColor    Background color
+ *  @param stateName  State Name to SET this state in other method
+ *  @param applyNow   YES if apply state immediatly or NO to not
+ */
+- (void)addStateWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow;
+/**
+ *  Creates TMFloatingButtonState object and applies if need
+ *
+ *  @param icon      Icon that will be in center on the button
+ *  @param bgColor   Background color
+ *  @param stateName State Name to SET this state in other method
+ *  @param applyNow  YES if apply state immediatly or NO to not
+ */
+- (void)addStateWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow;
+/**
+ *  Creates TMFloatingButtonState object and applies if need
+ *
+ *  @param view      Custom view:labels,images combinations
+ *  @param bgColor   Background color
+ *  @param stateName State Name to SET this state in other method
+ *  @param applyNow  YES if apply state immediatly or NO to not
+ */
+- (void)addStateWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow;
 /**
  *  Adds state(style) of Button and apply it immediately
  *
@@ -141,7 +215,9 @@ typedef enum {
  *  @param name State's name
  */
 - (void)setButtonState:(NSString *)name;
-//STYLES
+
+//- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+#pragma mark - STYLES
 /**
  *  Applies FavoritesStyle to Button
  *

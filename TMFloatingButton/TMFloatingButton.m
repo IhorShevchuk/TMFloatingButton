@@ -7,6 +7,7 @@
 //
 
 #import "TMFloatingButton.h"
+
 @implementation TMFloatingButtonState
 
 - (id)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor {
@@ -29,16 +30,16 @@
     }
     return self;
 }
-- (id)initWithText:(NSString *)text andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
-    self = [self initWithIcon:nil andText:text andBackgroundColor:bgColor forButton:button];
+- (id)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+    self = [self initWithIcon:nil andText:text withAttributes:attributes andBackgroundColor:bgColor forButton:button];
     return self;
 }
 - (id)initWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button
 {
-    self = [self initWithIcon:icon andText:nil andBackgroundColor:bgColor forButton:button];
+    self = [self initWithIcon:icon andText:nil withAttributes:@{} andBackgroundColor:bgColor forButton:button];
     return self;
 }
-- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
     CGFloat margin = 15;
     UIView *stateView = [[UIView alloc]initWithFrame:button.bounds];
     if(text != nil && icon != nil)
@@ -50,30 +51,23 @@
         imageFrame.origin.y = 9;
         stateIcon.frame = imageFrame;
         
-        //TODO: add text attributes
         UILabel *stateLabel;
         stateLabel = [[UILabel alloc]initWithFrame:CGRectMake(stateIcon.frame.origin.x, CGRectGetMaxY(stateIcon.frame) - 1.0, stateIcon.frame.size.width, 10)];
         stateLabel.text = text;
-        stateLabel.font = [UIFont systemFontOfSize:10];
-        stateLabel.minimumScaleFactor = 0.5;
-        stateLabel.textAlignment = NSTextAlignmentCenter;
-        stateLabel.textColor = [UIColor whiteColor];
+        [self applyAttributes:attributes toLabel:stateLabel];
+        
         
         [stateView addSubview:stateIcon];
+        
         [stateView addSubview:stateLabel];
     }
     else if(text != nil)
     {
-        //TODO: add text attributes
         margin = 3.0;
         UILabel *stateLabel;
         stateLabel = [[UILabel alloc]initWithFrame:CGRectMake(margin,(stateView.frame.size.height - 40) / 2.0, stateView.frame.size.width - 2.0 * margin, 40)];
         stateLabel.text = text;
-        stateLabel.font = [UIFont systemFontOfSize:12];
-        stateLabel.minimumScaleFactor = 0.5;
-        stateLabel.textAlignment = NSTextAlignmentCenter;
-        stateLabel.textColor = [UIColor whiteColor];
-        stateLabel.numberOfLines = 0;
+        [self applyAttributes:attributes toLabel:stateLabel];
         [stateView addSubview:stateLabel];
     }
     else if(icon != nil)
@@ -86,6 +80,26 @@
     stateView.userInteractionEnabled = NO;
     self = [self initWithView:stateView andBackgroundColor:bgColor forButton:button];
     return self;
+}
+-(void)applyAttributes:(NSDictionary *)attributes toLabel:(UILabel *)label
+{
+    UIFont *labelFont = [attributes objectForKey:NSFontAttributeName];
+    if(!labelFont)
+    {
+        labelFont = [UIFont systemFontOfSize:11];
+    }
+    UIColor *textColor = [attributes objectForKey:NSForegroundColorAttributeName];
+    if(!textColor)
+    {
+        textColor = [UIColor whiteColor];
+    }
+    
+    
+    label.font = labelFont;
+    label.minimumScaleFactor = 0.5;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = textColor;
+    label.numberOfLines = 0;
 }
 @end
 
@@ -104,9 +118,23 @@
 
 @implementation TMFloatingButton
 
-
+- (id)initWithSuperView:(UIView *)superView
+{
+    self = [self initWithWidth:ButtonDefaultSize withMargin:ButtonDefaultMargin andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:superView];
+    return self;
+}
+- (id)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andSuperView:(UIView *)superView
+{
+    self = [self initWithWidth:width withMargin:margin andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:superView];
+    return self;
+}
+- (id)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion postionandSuperView:(UIView *)superView
+{
+    self = [self initWithWidth:width withMargin:margin andPosition:postion andHideDirection:FloatingButtonHideDirectionDown andSuperView:superView];
+    return self;
+}
 - (id)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andHideDirection:(FloatingButtonHideDirection)hideDirection andSuperView:(UIView *)superView {
-    self = [super init];//[RoundFloatingButton buttonWithType:UIButtonTypeCustom];
+    self = [super init];
     
     if (self)
     {
@@ -166,6 +194,7 @@
         }
         //init activity indicator
         activityIndicator  = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        activityIndicator.hidesWhenStopped = YES;
         [self addSubview:activityIndicator];
         activityIndicator.center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);
         //states
@@ -268,10 +297,47 @@
         [self addSubview:curState.view];
     }
 }
+#pragma mark - STATES MANAGEMENT
 - (void)addState:(TMFloatingButtonState *)state forName:(NSString *)stateName {
     if (state && stateName)
     {
         [buttonStates setObject:state forKey:stateName];
+    }
+}
+- (void)addStateWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow
+{
+    TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithIcon:icon andText:text withAttributes:@{} andBackgroundColor:bgColor forButton:self];
+    [self addState:newState forName:stateName];
+    if(applyNow)
+    {
+        [self setButtonState:stateName];
+    }
+}
+- (void)addStateWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow
+{
+    TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithText:text withAttributes:@{} andBackgroundColor:bgColor forButton:self];
+    [self addState:newState forName:stateName];
+    if(applyNow)
+    {
+        [self setButtonState:stateName];
+    }
+}
+- (void)addStateWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow
+{
+    TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithIcon:icon andBackgroundColor:bgColor forButton:self];
+    [self addState:newState forName:stateName];
+    if(applyNow)
+    {
+        [self setButtonState:stateName];
+    }
+}
+- (void)addStateWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow
+{
+    TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithView:view andBackgroundColor:bgColor forButton:self];
+    [self addState:newState forName:stateName];
+    if(applyNow)
+    {
+        [self setButtonState:stateName];
     }
 }
 - (void)addAndApplyState:(TMFloatingButtonState *)state forName:(NSString *)stateName
@@ -301,7 +367,7 @@
     TMFloatingButtonState *notSaved = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"white-star"] andBackgroundColor:[UIColor colorWithRed:0.662 green:0.088 blue:0.719 alpha:0.800] forButton:button];
     
     //SAVED
-    TMFloatingButtonState *saved = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"checkmark-white"] andText:NSLocalizedString(@"Saved", @"Saved") andBackgroundColor:[UIColor colorWithRed:0.101 green:0.510 blue:0.133 alpha:0.800] forButton:button];
+    TMFloatingButtonState *saved = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"checkmark-white"] andText:NSLocalizedString(@"Saved", @"Saved") withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]} andBackgroundColor:[UIColor colorWithRed:0.101 green:0.510 blue:0.133 alpha:0.800] forButton:button];
     
     [button addState:notSaved forName:@"notSaved"];
     [button addState:saved forName:@"saved"];
