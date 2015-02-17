@@ -37,12 +37,13 @@ For now you can use next styles
 - _Message Style_  -  New message button
 
 ![](https://raw.github.com/IhorShevchuk/TMFloatingButton/master/FloatingButton/newMessage.png)
-#####How can I design my own?
+####How can I design my own?
 You can use one of next methods to create your own style 
 - To add state with text use next code:
 ```objectivec
     [customTextButton addStateWithText:@"Custom text" withAttributes:textAttributesDictionary andBackgroundColor:bgColor forName:@"CustomTextState" applyRightNow:YES];
 ```
+![](https://raw.github.com/IhorShevchuk/TMFloatingButton/master/FloatingButton/customText.png)
 - To add state with icon use next code
 ```objectivec
     [customIconButton addStateWithIcon:[UIImage imageNamed:@"icon-image"] andBackgroundColor:bgColor forName:@"CustomIconState" applyRightNow:NO];
@@ -55,13 +56,11 @@ You can use one of next methods to create your own style
 ```objectivec
     [customViewButton addStateWithView:customView andBackgroundColor:bgColor forName:@"CustomViewState" applyRightNow:YES];
 ```
-######About ApplyRightNow and TextAttributesDictionary parameters
-- BOOL parameter ApplyRightNow is using when you need set this state immediatly after adding state
-- TextAttributesDictionary is NSDictionary of text attributes (ex:`NSFontAttributeName`,`NSForegroundColorAttributeName`)
-
-for now you can apply only `NSFontAttributeName`,`NSForegroundColorAttributeName` in next version we add more text attributes
+#####About ApplyRightNow and TextAttributesDictionary parameters
+- `BOOL` parameter ApplyRightNow is using when you need set this state immediatly after adding state
+- TextAttributesDictionary is `NSDictionary` of text attributes (ex:`NSFontAttributeName`,`NSForegroundColorAttributeName`), for now you can apply only `NSFontAttributeName`,`NSForegroundColorAttributeName` in next version we add more text attributes
   
-#####Why I need to create `TMFloatingButtonState`s?
+####Why I need to create `TMFloatingButtonState`s?
 Sometimes button can change states during the app runing. 
 Example add to favorites button that indicates if object(artilce,words,tags) added to favorites or not. And you can easy set  this states with initing and after that just change states in different places in code
   ```objectivec
