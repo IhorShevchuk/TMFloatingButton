@@ -364,26 +364,16 @@
 #pragma mark - styles
 + (void)addFavoritesStyleToButton:(TMFloatingButton *)button {
     //NOT SAVED
-    TMFloatingButtonState *notSaved = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"white-star"] andBackgroundColor:[UIColor colorWithRed:0.662 green:0.088 blue:0.719 alpha:0.800] forButton:button];
-    
+    [button addStateWithIcon:[UIImage imageNamed:@"white-star"] andBackgroundColor:[UIColor colorWithRed:0.662 green:0.088 blue:0.719 alpha:0.800] forName:@"notSaved" applyRightNow:NO];
     //SAVED
-    TMFloatingButtonState *saved = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"checkmark-white"] andText:NSLocalizedString(@"Saved", @"Saved") withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]} andBackgroundColor:[UIColor colorWithRed:0.101 green:0.510 blue:0.133 alpha:0.800] forButton:button];
-    
-    [button addState:notSaved forName:@"notSaved"];
-    [button addState:saved forName:@"saved"];
+    [button addStateWithIcon:[UIImage imageNamed:@"checkmark-white"] andText:NSLocalizedString(@"Saved", @"Saved") withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]} andBackgroundColor:[UIColor colorWithRed:0.101 green:0.510 blue:0.133 alpha:0.800] forName:@"saved" applyRightNow:NO];
 }
 + (void)addModeEditStyleToButton:(TMFloatingButton *)button {
-    TMFloatingButtonState *statickStyle = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"white-mode-edit"] andBackgroundColor:[UIColor colorWithRed:0.792 green:0.169 blue:0.149 alpha:1.000] forButton:button];
-    [button addState:statickStyle forName:@"statickStyle"];
-    
-    [button setButtonState:@"statickStyle"];
+    [button addStateWithIcon:[UIImage imageNamed:@"white-mode-edit"]  andBackgroundColor:[UIColor colorWithRed:0.792 green:0.169 blue:0.149 alpha:1.000] forName:@"statickStyle" applyRightNow:YES];
 }
 + (void)addMessageStyleToButton:(TMFloatingButton *)button {
-    TMFloatingButtonState *statickStyle = [[TMFloatingButtonState alloc] initWithIcon:[UIImage imageNamed:@"message_grey"] andBackgroundColor:[UIColor whiteColor] forButton:button];
+
+    [button addStateWithIcon:[UIImage imageNamed:@"message_grey"] andBackgroundColor:[UIColor whiteColor] forName:@"staticStyle" applyRightNow:YES];
     
-    
-    [button addState:statickStyle forName:@"staticStyle"];
-    
-    [button setButtonState:@"staticStyle"];
 }
 @end

@@ -51,7 +51,7 @@
 - (void)createModeEditButton
 {
     floatingModeEditButton = [[TMFloatingButton alloc]initWithWidth:ButtonDefaultSize withMargin:ButtonDefaultMargin andPosition:FloatingButtonPositionBottomLeft andHideDirection:FloatingButtonHideDirectionDown andSuperView:self.navigationController.view];
-    [floatingModeEditButton addStateWithText:@"Custom text" withAttributes:@{} andBackgroundColor:[UIColor colorWithRed:0.792 green:0.169 blue:0.149 alpha:1.000] forName:@"CustomStateText" applyRightNow:YES];
+    [floatingModeEditButton addStateWithText:@"Custom text" withAttributes:@{} andBackgroundColor:[UIColor colorWithRed:0.792 green:0.615 blue:0.149 alpha:1.000] forName:@"CustomStateText" applyRightNow:YES];
     [floatingModeEditButton addTarget:self action:@selector(modeEditAction) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)modeEditAction
@@ -60,7 +60,6 @@
 }
 #pragma mark - AddToFavoritesButton
 - (void)createAddToFavoritesButton {
-    
     floatingButton = [[TMFloatingButton alloc]initWithSuperView:self.navigationController.view];
     
     [TMFloatingButton addFavoritesStyleToButton:floatingButton];

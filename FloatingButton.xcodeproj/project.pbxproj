@@ -21,6 +21,7 @@
 		8484DB6C1A8A08FE004C4E5E /* TMFloatingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB6B1A8A08FE004C4E5E /* TMFloatingButton.m */; };
 		8484DB6F1A8A0A88004C4E5E /* TMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB6E1A8A0A88004C4E5E /* TMTableViewController.m */; };
 		8484DB711A8A157A004C4E5E /* buttonImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8484DB701A8A157A004C4E5E /* buttonImages.xcassets */; };
+		84B7039C1A935F04006E07E1 /* customText.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B7039B1A935F04006E07E1 /* customText.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8484DB6D1A8A0A88004C4E5E /* TMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTableViewController.h; sourceTree = "<group>"; };
 		8484DB6E1A8A0A88004C4E5E /* TMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTableViewController.m; sourceTree = "<group>"; };
 		8484DB701A8A157A004C4E5E /* buttonImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = buttonImages.xcassets; sourceTree = "<group>"; };
+		84B7039B1A935F04006E07E1 /* customText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customText.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		8484DB431A8A089B004C4E5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84B7039B1A935F04006E07E1 /* customText.png */,
 				847AD1841A8B572E004E0798 /* favorites1.png */,
 				847AD1851A8B572E004E0798 /* favorites2.png */,
 				847AD1861A8B572E004E0798 /* modeEdit.png */,
@@ -233,6 +236,7 @@
 				8484DB4F1A8A089B004C4E5E /* Main.storyboard in Resources */,
 				847E39891A8A9A4B00893FC2 /* screen.png in Resources */,
 				847AD18A1A8B572E004E0798 /* modeEdit.png in Resources */,
+				84B7039C1A935F04006E07E1 /* customText.png in Resources */,
 				8484DB541A8A089B004C4E5E /* LaunchScreen.xib in Resources */,
 				847AD1891A8B572E004E0798 /* favorites2.png in Resources */,
 				8484DB511A8A089B004C4E5E /* Images.xcassets in Resources */,
