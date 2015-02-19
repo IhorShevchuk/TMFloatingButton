@@ -137,6 +137,25 @@ typedef enum {
  */
 @property (assign, nonatomic) BOOL showShadow;
 /**
+ *  Size of the button it is square thats why we use one value
+ */
+
+//TODO: Change Frame when next properties changed
+@property (assign, nonatomic) CGFloat size;
+/**
+ *  Margin from sides of Superview
+ */
+@property (assign, nonatomic) CGFloat margin;
+/**
+ *  Position of Button. It can be located in one of four corners
+ */
+@property (assign, nonatomic) FloatingButtonHideDirection hideDirection;
+/**
+ *  Direction to hide. Button can be hidden to one of four dirrection
+ */
+@property (assign, nonatomic) FloatingButtonPosition position;
+
+/**
  *  Hides Button
  *
  *  @param animated YES - animated and NO - not animated

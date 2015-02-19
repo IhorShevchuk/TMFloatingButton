@@ -24,6 +24,7 @@
     self = [super init];
     if (self)
     {
+        view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
         _view = view;
         [_view setFrame:button.bounds];
         _bgColor = bgColor;
@@ -138,60 +139,18 @@
     
     if (self)
     {
-        //set frame that depends from 'postion'
-        CGRect frameForButton;
-        switch (postion) {
-            case FloatingButtonPositionTopLeft:
-                frameForButton = CGRectMake(margin, margin, width, width);
-                break;
-                
-            case FloatingButtonPositionTopRight:
-                frameForButton = CGRectMake(superView.frame.size.width - width - margin, margin, width, width);
-                break;
-                
-            case FloatingButtonPositionBottomLeft:
-                frameForButton = CGRectMake(margin, superView.frame.size.height - width - margin, width, width);
-                break;
-                
-            case FloatingButtonPositionBottomRight:
-                frameForButton = CGRectMake(superView.frame.size.width - width - margin, superView.frame.size.height - width - margin, width, width);
-                break;
-                
-            default:
-                break;
-        }
-        self.frame = frameForButton;
-        
+        _size = width;
+        _margin = margin;
+        _position = postion;
+        _hideDirection = hideDirection;
+        [self updateFrameWithPosition:_position andHideDirection:_hideDirection];
         //rounded
         _isRounded = NO;
         [self setIsRounded:YES];
         _showShadow = NO;
         [self setShowShadow:YES];
         
-        //calculate hided frame
-        hideFrame = self.frame;
-        showFrame = self.frame;
-        switch (hideDirection) {
-            case FloatingButtonHideDirectionLeft:
-                hideFrame.origin.x = -showFrame.size.width;
-                break;
-                
-            case FloatingButtonHideDirectionRight:
-                
-                hideFrame.origin.x = superView.frame.size.width;
-                break;
-                
-            case FloatingButtonHideDirectionUp:
-                hideFrame.origin.y = -showFrame.size.height;
-                break;
-                
-            case FloatingButtonHideDirectionDown:
-                hideFrame.origin.y = superView.frame.size.height;
-                break;
-                
-            default:
-                break;
-        }
+        
         //init activity indicator
         activityIndicator  = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         activityIndicator.hidesWhenStopped = YES;
@@ -278,13 +237,15 @@
         self.frame = showFrame;
     }
 }
-- (void)addAsSubviewToView:(UIView *)superView {
+- (BOOL)addAsSubviewToView:(UIView *)superView {
     if (superView == nil)
     {
         NSLog(@"WARNING!: superview is nil!");
+        return NO;
     }
     [superView addSubview:self];
     [superView bringSubviewToFront:self];
+    return YES;
 }
 - (void)animateActivityIndicatorStart:(BOOL)animate {
     if (animate)
@@ -296,6 +257,80 @@
         [activityIndicator stopAnimating];
         [self addSubview:curState.view];
     }
+}
+#pragma mark Frame updates
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self updateFrameWithPosition:_position andHideDirection:_hideDirection];
+}
+- (void)updateFrameWithPosition:(FloatingButtonPosition)postion andHideDirection:(FloatingButtonHideDirection)hideDirection
+{
+    //set frame that depends on 'postion'
+    CGRect frameForButton;
+    switch (postion) {
+        case FloatingButtonPositionTopLeft:
+            frameForButton = CGRectMake(_margin, _margin, _size, _size);
+            break;
+            
+        case FloatingButtonPositionTopRight:
+            frameForButton = CGRectMake(self.superview.frame.size.width - _size - _margin, _margin, _size, _size);
+            break;
+            
+        case FloatingButtonPositionBottomLeft:
+            frameForButton = CGRectMake(_margin, self.superview.frame.size.height - _size - _margin, _size, _size);
+            break;
+            
+        case FloatingButtonPositionBottomRight:
+            frameForButton = CGRectMake(self.superview.frame.size.width - _size - _margin, self.superview.frame.size.height - _size - _margin, _size, _size);
+            break;
+            
+        default:
+            break;
+    }
+    self.frame = frameForButton;
+    //calculate hided frame
+    hideFrame = self.frame;
+    showFrame = self.frame;
+    switch (hideDirection) {
+        case FloatingButtonHideDirectionLeft:
+            hideFrame.origin.x = -showFrame.size.width;
+            break;
+            
+        case FloatingButtonHideDirectionRight:
+            
+            hideFrame.origin.x = self.superview.frame.size.width;
+            break;
+            
+        case FloatingButtonHideDirectionUp:
+            hideFrame.origin.y = -showFrame.size.height;
+            break;
+            
+        case FloatingButtonHideDirectionDown:
+            hideFrame.origin.y = self.superview.frame.size.height;
+            break;
+            
+        default:
+            break;
+    }
+    
+    activityIndicator.center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);
+}
+-(void)setSize:(CGFloat)size
+{
+    [self layoutSubviews];
+}
+-(void)setMargin:(CGFloat)margin
+{
+    [self layoutSubviews];
+}
+-(void)setPosition:(FloatingButtonPosition)position
+{
+    [self layoutSubviews];
+}
+-(void)setHideDirection:(FloatingButtonHideDirection)hideDirection
+{
+    [self layoutSubviews];
 }
 #pragma mark - STATES MANAGEMENT
 - (void)addState:(TMFloatingButtonState *)state forName:(NSString *)stateName {
@@ -372,8 +407,6 @@
     [button addStateWithIcon:[UIImage imageNamed:@"white-mode-edit"]  andBackgroundColor:[UIColor colorWithRed:0.792 green:0.169 blue:0.149 alpha:1.000] forName:@"statickStyle" applyRightNow:YES];
 }
 + (void)addMessageStyleToButton:(TMFloatingButton *)button {
-
     [button addStateWithIcon:[UIImage imageNamed:@"message_grey"] andBackgroundColor:[UIColor whiteColor] forName:@"staticStyle" applyRightNow:YES];
-    
 }
 @end
