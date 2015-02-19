@@ -59,7 +59,7 @@ You can use one of next methods to create your own style
 - `BOOL` parameter ApplyRightNow is using when you need set this state immediatly after adding state
 - TextAttributesDictionary is `NSDictionary` of text attributes (ex:`NSFontAttributeName`,`NSForegroundColorAttributeName`), for now you can apply only `NSFontAttributeName`,`NSForegroundColorAttributeName` in next version we add more text attributes
   
-####Why I need to create `TMFloatingButtonState`s?
+####Why I need to create states?
 Sometimes button can change states during the app runing. 
 Example add to favorites button that indicates if object(artilce,words,tags) added to favorites or not. And you can easy set  this states with initing and after that just change states in different places in code
   ```objectivec
