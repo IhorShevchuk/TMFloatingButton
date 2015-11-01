@@ -8,6 +8,54 @@
 
 #import "TMFloatingButton.h"
 
+@interface UILabel (DictionaryAtributes)
+/**
+ *  applies attributes to UILabel
+ *
+ *  @param attributes Dictionary of attributes with keys: NSFontAttributeName, NSForegroundColorAttributeName etc.
+ */
+-(void)applyAttributes:(NSDictionary*)attributes;
+@end
+@implementation UILabel (DictionaryAtributes)
+
+-(void)applyAttributes:(NSDictionary *)attributes
+{
+    NSMutableDictionary *attributesToSet;
+    if(attributes)
+    {
+        attributesToSet = [attributes mutableCopy];
+    }
+    else
+    {
+        attributesToSet = [[NSMutableDictionary alloc]init];
+    }
+    if(![attributesToSet objectForKey:NSFontAttributeName])
+    {
+        [attributesToSet setObject:[UIFont systemFontOfSize:11] forKey:NSFontAttributeName];
+    }
+    if(![attributesToSet objectForKey:NSForegroundColorAttributeName])
+    {
+        [attributesToSet setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];;
+    }
+    
+    if(![attributesToSet objectForKey:NSParagraphStyleAttributeName])
+    {
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        [attributesToSet setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];;
+    }
+    
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:self.text attributes:attributesToSet];
+    
+    self.attributedText = attributedString;
+    
+    self.minimumScaleFactor = 0.5;
+    self.numberOfLines = 0;
+}
+
+@end
+
 @implementation TMFloatingButtonState
 
 - (id)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor {
@@ -55,8 +103,7 @@
         UILabel *stateLabel;
         stateLabel = [[UILabel alloc]initWithFrame:CGRectMake(stateIcon.frame.origin.x, CGRectGetMaxY(stateIcon.frame) - 1.0, stateIcon.frame.size.width, 10)];
         stateLabel.text = text;
-        [self applyAttributes:attributes toLabel:stateLabel];
-        
+        [stateLabel applyAttributes:attributes];
         
         [stateView addSubview:stateIcon];
         
@@ -68,7 +115,7 @@
         UILabel *stateLabel;
         stateLabel = [[UILabel alloc]initWithFrame:CGRectMake(margin,(stateView.frame.size.height - 40) / 2.0, stateView.frame.size.width - 2.0 * margin, 40)];
         stateLabel.text = text;
-        [self applyAttributes:attributes toLabel:stateLabel];
+        [stateLabel applyAttributes:attributes];
         [stateView addSubview:stateLabel];
     }
     else if(icon != nil)
@@ -81,26 +128,6 @@
     stateView.userInteractionEnabled = NO;
     self = [self initWithView:stateView andBackgroundColor:bgColor forButton:button];
     return self;
-}
--(void)applyAttributes:(NSDictionary *)attributes toLabel:(UILabel *)label
-{
-    UIFont *labelFont = [attributes objectForKey:NSFontAttributeName];
-    if(!labelFont)
-    {
-        labelFont = [UIFont systemFontOfSize:11];
-    }
-    UIColor *textColor = [attributes objectForKey:NSForegroundColorAttributeName];
-    if(!textColor)
-    {
-        textColor = [UIColor whiteColor];
-    }
-    
-    
-    label.font = labelFont;
-    label.minimumScaleFactor = 0.5;
-    label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = textColor;
-    label.numberOfLines = 0;
 }
 @end
 

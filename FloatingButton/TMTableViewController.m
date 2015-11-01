@@ -51,7 +51,9 @@
 - (void)createModeEditButton
 {
     floatingModeEditButton = [[TMFloatingButton alloc]initWithWidth:ButtonDefaultSize withMargin:ButtonDefaultMargin andPosition:FloatingButtonPositionBottomLeft andHideDirection:FloatingButtonHideDirectionDown andSuperView:self.navigationController.view];
-    [floatingModeEditButton addStateWithText:@"Custom text" withAttributes:@{} andBackgroundColor:[UIColor colorWithRed:0.792 green:0.615 blue:0.149 alpha:1.000] forName:@"CustomStateText" applyRightNow:YES];
+    [floatingModeEditButton addStateWithText:@"Custom text" withAttributes:@{
+                                                                             NSForegroundColorAttributeName:[UIColor colorWithRed:0.000 green:0.727 blue:0.000 alpha:1.000],
+                                                                             NSFontAttributeName:[UIFont boldSystemFontOfSize:9]} andBackgroundColor:[UIColor colorWithRed:0.792 green:0.615 blue:0.149 alpha:1.000] forName:@"CustomStateText" applyRightNow:YES];
     [floatingModeEditButton addTarget:self action:@selector(modeEditAction) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)modeEditAction

@@ -8,6 +8,11 @@ With this simple project you can add and design your material round button like 
 
 2) Import file `TMFloatingButton.h` to files where buttons will be shown
 
+### Requirements
+* Xcode 5 or higher
+* iOS 7.0 or higher
+* ARC
+
 ## Usage
 1) In some method (ex:`viewDidLoad`) init `TMFloatingButton` object and add it to view where it should appear using next code:
 ```objectivec
@@ -57,7 +62,7 @@ You can use one of next methods to create your own style
 ```
 #####About ApplyRightNow and TextAttributesDictionary parameters
 - `BOOL` parameter ApplyRightNow is using when you need set this state immediatly after adding state
-- TextAttributesDictionary is `NSDictionary` of text attributes (ex:`NSFontAttributeName`,`NSForegroundColorAttributeName`), for now you can apply only `NSFontAttributeName`,`NSForegroundColorAttributeName` in next version we add more text attributes
+- TextAttributesDictionary is `NSDictionary` of text attributes (ex:`NSFontAttributeName`,`NSForegroundColorAttributeName` etc.)
   
 ####Why I need to create states?
 Sometimes button can change states during the app runing. 
