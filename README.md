@@ -85,7 +85,7 @@ Notice that all methods are called in different thread
   ```
 See example code for more details
 #####TODO
--Abilty to move button
+-Ability to move button
 ## License
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
