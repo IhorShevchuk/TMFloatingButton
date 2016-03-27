@@ -77,8 +77,7 @@ Notice that all methods are called in different thread
 
  ```objectivec
      [floatingButton animateActivityIndicatorStart:YES];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        sleep(1);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [floatingButton setButtonState:@"saved"];
         [floatingButton animateActivityIndicatorStart:NO];
          });
