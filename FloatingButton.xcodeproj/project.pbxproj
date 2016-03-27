@@ -22,6 +22,9 @@
 		8484DB6F1A8A0A88004C4E5E /* TMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB6E1A8A0A88004C4E5E /* TMTableViewController.m */; };
 		8484DB711A8A157A004C4E5E /* buttonImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8484DB701A8A157A004C4E5E /* buttonImages.xcassets */; };
 		84B7039C1A935F04006E07E1 /* customText.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B7039B1A935F04006E07E1 /* customText.png */; };
+		84BB486D1CA4A17700C560AC /* UILabel+DictionaryAtributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486C1CA4A17700C560AC /* UILabel+DictionaryAtributes.m */; };
+		84BB48701CA4A1A800C560AC /* TMFloatingButtonState.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */; };
+		84BB48731CA4A25D00C560AC /* TMFloatingButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,12 @@
 		8484DB6E1A8A0A88004C4E5E /* TMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTableViewController.m; sourceTree = "<group>"; };
 		8484DB701A8A157A004C4E5E /* buttonImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = buttonImages.xcassets; sourceTree = "<group>"; };
 		84B7039B1A935F04006E07E1 /* customText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customText.png; sourceTree = "<group>"; };
+		84BB486B1CA4A17700C560AC /* UILabel+DictionaryAtributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DictionaryAtributes.h"; sourceTree = "<group>"; };
+		84BB486C1CA4A17700C560AC /* UILabel+DictionaryAtributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DictionaryAtributes.m"; sourceTree = "<group>"; };
+		84BB486E1CA4A1A800C560AC /* TMFloatingButtonState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMFloatingButtonState.h; sourceTree = "<group>"; };
+		84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMFloatingButtonState.m; sourceTree = "<group>"; };
+		84BB48711CA4A25D00C560AC /* TMFloatingButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMFloatingButtonView.h; sourceTree = "<group>"; };
+		84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMFloatingButtonView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +157,12 @@
 			children = (
 				8484DB6A1A8A08FE004C4E5E /* TMFloatingButton.h */,
 				8484DB6B1A8A08FE004C4E5E /* TMFloatingButton.m */,
+				84BB486E1CA4A1A800C560AC /* TMFloatingButtonState.h */,
+				84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */,
+				84BB486B1CA4A17700C560AC /* UILabel+DictionaryAtributes.h */,
+				84BB486C1CA4A17700C560AC /* UILabel+DictionaryAtributes.m */,
+				84BB48711CA4A25D00C560AC /* TMFloatingButtonView.h */,
+				84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */,
 				8484DB701A8A157A004C4E5E /* buttonImages.xcassets */,
 			);
 			path = TMFloatingButton;
@@ -260,9 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BB48701CA4A1A800C560AC /* TMFloatingButtonState.m in Sources */,
+				84BB48731CA4A25D00C560AC /* TMFloatingButtonView.m in Sources */,
 				8484DB6C1A8A08FE004C4E5E /* TMFloatingButton.m in Sources */,
 				8484DB491A8A089B004C4E5E /* AppDelegate.m in Sources */,
 				8484DB6F1A8A0A88004C4E5E /* TMTableViewController.m in Sources */,
+				84BB486D1CA4A17700C560AC /* UILabel+DictionaryAtributes.m in Sources */,
 				8484DB461A8A089B004C4E5E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

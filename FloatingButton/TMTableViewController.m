@@ -37,11 +37,16 @@
 #pragma mark - NewMessageButton
 - (void)createNewMessageButton
 {
-    floatingNewMessageButton = [[TMFloatingButton alloc]initWithWidth:ButtonDefaultSize withMargin:ButtonDefaultMargin andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:self.navigationController.view];
+    floatingNewMessageButton = [[TMFloatingButton alloc]initWithWidth:kTMFloatingButtonDefaultSize
+                                                           withMargin:kTMFloatingButtonDefaultMargin
+                                                          andPosition:FloatingButtonPositionBottomRight
+                                                     andHideDirection:FloatingButtonHideDirectionDown
+                                                         andSuperView:self.navigationController.view];
     
     [TMFloatingButton addMessageStyleToButton:floatingNewMessageButton];
     
     [floatingNewMessageButton addTarget:self action:@selector(newMessageButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    floatingNewMessageButton.canBeMoved = YES;
 }
 - (void)newMessageButtonAction
 {
@@ -50,11 +55,21 @@
 #pragma mark - ModeEditButton
 - (void)createModeEditButton
 {
-    floatingModeEditButton = [[TMFloatingButton alloc]initWithWidth:ButtonDefaultSize withMargin:ButtonDefaultMargin andPosition:FloatingButtonPositionBottomLeft andHideDirection:FloatingButtonHideDirectionDown andSuperView:self.navigationController.view];
-    [floatingModeEditButton addStateWithText:@"Custom text" withAttributes:@{
-                                                                             NSForegroundColorAttributeName:[UIColor colorWithRed:0.000 green:0.727 blue:0.000 alpha:1.000],
-                                                                             NSFontAttributeName:[UIFont boldSystemFontOfSize:9]} andBackgroundColor:[UIColor colorWithRed:0.792 green:0.615 blue:0.149 alpha:1.000] forName:@"CustomStateText" applyRightNow:YES];
+    floatingModeEditButton = [[TMFloatingButton alloc]initWithWidth:kTMFloatingButtonDefaultSize
+                                                         withMargin:kTMFloatingButtonDefaultMargin
+                                                        andPosition:FloatingButtonPositionBottomLeft
+                                                   andHideDirection:FloatingButtonHideDirectionDown
+                                                       andSuperView:self.navigationController.view];
+    
+    [floatingModeEditButton addStateWithText:@"Custom text"
+                              withAttributes:@{
+                                               NSForegroundColorAttributeName:[UIColor colorWithRed:0.000 green:0.727 blue:0.000 alpha:1.000],
+                                               NSFontAttributeName:[UIFont boldSystemFontOfSize:9]}
+                          andBackgroundColor:[UIColor colorWithRed:0.792 green:0.615 blue:0.149 alpha:1.000]
+                                     forName:@"CustomStateText"
+                               applyRightNow:YES];
     [floatingModeEditButton addTarget:self action:@selector(modeEditAction) forControlEvents:UIControlEventTouchUpInside];
+    floatingModeEditButton.canBeMoved = YES;
 }
 - (void)modeEditAction
 {
@@ -72,8 +87,7 @@
 - (void)addToFavoritesAction
 {
     [floatingButton animateActivityIndicatorStart:YES];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        sleep(1);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         added = !added;
         if(added)
         {

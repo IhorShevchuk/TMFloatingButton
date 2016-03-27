@@ -7,64 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#define ButtonDefaultSize 60
-#define ButtonDefaultMargin 15
-@class TMFloatingButton;
-@interface TMFloatingButtonState : NSObject
-/**
- *  State(style) object of TMFloatingButton. State shoud have the same size(bounds) as TMFloatingButton
- *
- *  @param view    Custom view:labels,images combinations
- *  @param bgColor Background color
- *
- *  @return inited TMFloatingButtonState object
- */
-- (id)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor DEPRECATED_ATTRIBUTE;
-/**
- *  State(style) object of TMFloatingButton.
- *
- *  @param view    Custom view:labels,images combinations
- *  @param bgColor Background color
- *  @param button  The TMFloatingButton object for that state is being created
- *
- *  @return inited TMFloatingButtonState object
- */
-- (id)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
-/**
- *  State(style) object of TMFloatingButton.
- *
- *  @param text    Text for state
- *  @param bgColor Background color
- *  @param button  The TMFloatingButton object for that state is being created
- *
- *  @return inited TMFloatingButtonState object
- */
-- (id)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
-/**
- *  State(style) object of TMFloatingButton.
- *
- *  @param icon    Icon that will be in center on the button
- *  @param bgColor Background color
- *  @param button  The TMFloatingButton object for that state is being created
- *
- *  @return inited TMFloatingButtonState object
- */
-- (id)initWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
-/**
- *  State(style) object of TMFloatingButton.
- *
- *  @param icon    Icon that will be in center on the button
- *  @param text    Text for state will be located under icon
- *  @param bgColor Background color
- *  @param button  The TMFloatingButton object for that state is being created
- *
- *  @return inited TMFloatingButtonState object
- */
-- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
 
-@property (nonatomic, readonly, strong) UIView *view;
-@property (nonatomic, readonly, strong) UIColor *bgColor;
-@end
+#import "TMFloatingButtonState.h"
+
 /**
  TMFloatingButton's postion on super view
  */
@@ -83,6 +28,9 @@ typedef enum {
     FloatingButtonHideDirectionUp,
     FloatingButtonHideDirectionDown
 }FloatingButtonHideDirection;
+
+static const CGFloat kTMFloatingButtonDefaultSize = 60.0f;
+static const CGFloat kTMFloatingButtonDefaultMargin = 15.0f;
 
 //button that can animation hide and change different view stetes
 @interface TMFloatingButton : UIButton
@@ -154,6 +102,10 @@ typedef enum {
  *  Direction to hide. Button can be hidden to one of four dirrection
  */
 @property (assign, nonatomic) FloatingButtonPosition position;
+/**
+ *  
+ */
+@property (nonatomic, assign) BOOL canBeMoved;
 
 /**
  *  Hides Button
