@@ -73,7 +73,6 @@ Example add to favorites button that indicates if object(artilce,words,tags) add
 
 #####How can I show `UIActivityIndicatorView` while button's state is changing?
 You can simply show `UIActivityIndicatorView` using this code:
-Notice that all methods are called in different thread
 
  ```objectivec
      [floatingButton animateActivityIndicatorStart:YES];
