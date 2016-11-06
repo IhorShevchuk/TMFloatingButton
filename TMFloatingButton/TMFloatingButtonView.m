@@ -9,13 +9,12 @@
 #import "TMFloatingButtonView.h"
 #import "UILabel+DictionaryAtributes.h"
 
-typedef enum
-{
+typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
     TMFloatingButtonViewTypeIcon = 0,
     TMFloatingButtonViewTypeText,
     TMFloatingButtonViewTypeIconWithText,
     TMFloatingButtonViewTypeView
-}TMFloatingButtonViewType;
+};
 
 @interface TMFloatingButtonView()
 {
@@ -27,7 +26,7 @@ typedef enum
 @end
 
 @implementation TMFloatingButtonView
-- (id)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor
+- (instancetype)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor 
 {
     self = [super init];
     if(self)
@@ -40,7 +39,7 @@ typedef enum
     return self;
 }
 
-- (id)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor
+- (instancetype)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor
 {
     self = [super init];
     if(self)
@@ -60,7 +59,7 @@ typedef enum
     return self;
 }
 
-- (id)initWithIcon:(UIImage *)image andBackgroundColor:(UIColor *)bgColor
+- (instancetype)initWithIcon:(UIImage *)image andBackgroundColor:(UIColor *)bgColor
 {
     self = [super init];
     if(self)
@@ -80,7 +79,7 @@ typedef enum
     return self;
 }
 
-- (id)initWithIcon:(UIImage *)image andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor
+- (instancetype)initWithIcon:(UIImage *)image andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor
 {
     self = [super init];
     if(self)
@@ -138,7 +137,7 @@ typedef enum
         }
         case TMFloatingButtonViewTypeView:
         {
-            [subview setFrame:self.bounds];
+            subview.frame = self.bounds;
         }
             break;
         default:

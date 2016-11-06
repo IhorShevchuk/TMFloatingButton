@@ -21,20 +21,20 @@
     {
         attributesToSet = [[NSMutableDictionary alloc]init];
     }
-    if(![attributesToSet objectForKey:NSFontAttributeName])
+    if(!attributesToSet[NSFontAttributeName])
     {
-        [attributesToSet setObject:[UIFont systemFontOfSize:11] forKey:NSFontAttributeName];
+        attributesToSet[NSFontAttributeName] = [UIFont systemFontOfSize:11];
     }
-    if(![attributesToSet objectForKey:NSForegroundColorAttributeName])
+    if(!attributesToSet[NSForegroundColorAttributeName])
     {
-        [attributesToSet setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];;
+        attributesToSet[NSForegroundColorAttributeName] = [UIColor whiteColor];;
     }
     
-    if(![attributesToSet objectForKey:NSParagraphStyleAttributeName])
+    if(!attributesToSet[NSParagraphStyleAttributeName])
     {
         NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
         paragraphStyle.alignment = NSTextAlignmentCenter;
-        [attributesToSet setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];;
+        attributesToSet[NSParagraphStyleAttributeName] = paragraphStyle;;
     }
     
     

@@ -22,7 +22,7 @@
  *
  *  @return inited TMFloatingButtonState object
  */
-- (id)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+- (instancetype)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button NS_DESIGNATED_INITIALIZER;
 /**
  *  State(style) object of TMFloatingButton.
  *
@@ -32,7 +32,7 @@
  *
  *  @return inited TMFloatingButtonState object
  */
-- (id)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+- (instancetype)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
 /**
  *  State(style) object of TMFloatingButton.
  *
@@ -42,7 +42,7 @@
  *
  *  @return inited TMFloatingButtonState object
  */
-- (id)initWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+- (instancetype)initWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
 /**
  *  State(style) object of TMFloatingButton.
  *
@@ -53,7 +53,7 @@
  *
  *  @return inited TMFloatingButtonState object
  */
-- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
+- (instancetype)initWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
 
 @property (nonatomic, readonly, strong) TMFloatingButtonView *view;
 @property (nonatomic, readonly, strong) UIColor *bgColor;

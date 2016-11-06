@@ -12,7 +12,7 @@
 
 @implementation TMFloatingButtonState
 
-- (id)initWithView:(TMFloatingButtonView *)view andBackgroundColor:(UIColor *)bgColor {
+- (instancetype)initWithView:(TMFloatingButtonView *)view andBackgroundColor:(UIColor *)bgColor {
     self = [super init];
     if (self)
     {
@@ -23,30 +23,30 @@
     return self;
 }
 
-- (id)initWithView:(TMFloatingButtonView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+- (instancetype)initWithView:(TMFloatingButtonView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
     self = [super init];
     if (self)
     {
         view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
         _view = view;
-        [_view setFrame:button.bounds];
+        _view.frame = button.bounds;
         _bgColor = bgColor;
     }
     return self;
 }
 
-- (id)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+- (instancetype)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
     self = [self initWithIcon:nil andText:text withAttributes:attributes andBackgroundColor:bgColor forButton:button];
     return self;
 }
 
-- (id)initWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button
+- (instancetype)initWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button
 {
     self = [self initWithIcon:icon andText:nil withAttributes:@{} andBackgroundColor:bgColor forButton:button];
     return self;
 }
 
-- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+- (instancetype)initWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
     TMFloatingButtonView *stateView = nil;
     if(text != nil && icon != nil)
     {

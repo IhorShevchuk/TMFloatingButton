@@ -29,25 +29,25 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
 
 @implementation TMFloatingButton
 
-- (id)initWithSuperView:(UIView *)superView
+- (instancetype)initWithSuperView:(UIView *)superView
 {
     self = [self initWithWidth:kTMFloatingButtonDefaultSize withMargin:kTMFloatingButtonDefaultMargin andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:superView];
     return self;
 }
 
-- (id)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andSuperView:(UIView *)superView
+- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andSuperView:(UIView *)superView
 {
     self = [self initWithWidth:width withMargin:margin andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:superView];
     return self;
 }
 
-- (id)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion postionandSuperView:(UIView *)superView
+- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion postionandSuperView:(UIView *)superView
 {
     self = [self initWithWidth:width withMargin:margin andPosition:postion andHideDirection:FloatingButtonHideDirectionDown andSuperView:superView];
     return self;
 }
 
-- (id)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andHideDirection:(FloatingButtonHideDirection)hideDirection andSuperView:(UIView *)superView {
+- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andHideDirection:(FloatingButtonHideDirection)hideDirection andSuperView:(UIView *)superView {
     self = [super init];
     
     if (self)
@@ -102,16 +102,16 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
 {
     if (showShadow)
     {
-        [self.layer setShadowColor:[UIColor blackColor].CGColor];
-        [self.layer setShadowOpacity:0.7];
-        [self.layer setShadowRadius:3.0];
-        [self.layer setShadowOffset:CGSizeMake(1.0, 1.0)];
+        (self.layer).shadowColor = [UIColor blackColor].CGColor;
+        (self.layer).shadowOpacity = 0.7;
+        (self.layer).shadowRadius = 3.0;
+        (self.layer).shadowOffset = CGSizeMake(1.0, 1.0);
     }
     else {
-        [self.layer setShadowColor:[UIColor clearColor].CGColor];
-        [self.layer setShadowOpacity:0.0];
-        [self.layer setShadowRadius:0.0];
-        [self.layer setShadowOffset:CGSizeMake(0.0, 0.0)];
+        (self.layer).shadowColor = [UIColor clearColor].CGColor;
+        (self.layer).shadowOpacity = 0.0;
+        (self.layer).shadowRadius = 0.0;
+        (self.layer).shadowOffset = CGSizeMake(0.0, 0.0);
     }
     _showShadow = showShadow;
     
@@ -183,18 +183,18 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
     [self updateFrameWithPosition:_position];
     [self updateCornerRadius];
     [self updateShadowFrame];
-    [curState.view setFrame:self.bounds];
+    (curState.view).frame = self.bounds;
     [super layoutSubviews];
 }
 
 - (void)updateShadowFrame
 {
-    [self setShowShadow:_showShadow];
+    self.showShadow = _showShadow;
 }
 
 - (void)updateCornerRadius
 {
-    [self setIsRounded:_isRounded];
+    self.isRounded = _isRounded;
 }
 
 - (void)updateFrameWithPosition:(FloatingButtonPosition)postion
@@ -369,7 +369,7 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    if([[NSDate date] timeIntervalSince1970] - [time timeIntervalSince1970] <= kLongTouchTime)
+    if([NSDate date].timeIntervalSince1970 - time.timeIntervalSince1970 <= kLongTouchTime)
     {
         [super touchesEnded:touches withEvent:event];
         [draggingTimer invalidate];
@@ -384,14 +384,14 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
     [super touchesMoved:touches withEvent:event];
-    if([[NSDate date] timeIntervalSince1970] - [time timeIntervalSince1970] > kLongTouchTime)
+    if([NSDate date].timeIntervalSince1970 - time.timeIntervalSince1970 > kLongTouchTime)
     {
         if(!canBeDragged)
         {
             return;
         }
         
-        UITouch *touch = [[event allTouches] anyObject];
+        UITouch *touch = [event.allTouches anyObject];
         CGPoint touchLocation = [touch locationInView:self.superview];
         NSLog(@"Delta xd:%f yd:%f",(touchLocation.x - startM.x),(touchLocation.y - startM.y));
         CGPoint newCenter = CGPointMake(self.center.x + (touchLocation.x - startM.x), self.center.y + (touchLocation.y - startM.y));
@@ -406,7 +406,7 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
 - (void)addState:(TMFloatingButtonState *)state forName:(NSString *)stateName {
     if (state && stateName)
     {
-        [buttonStates setObject:state forKey:stateName];
+        buttonStates[stateName] = state;
     }
 }
 - (void)addStateWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow
@@ -451,14 +451,14 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
     [self setButtonState:stateName];
 }
 - (void)setButtonState:(NSString *)name {
-    TMFloatingButtonState *stateToSet = [buttonStates objectForKey:name];
+    TMFloatingButtonState *stateToSet = buttonStates[name];
     if (![stateToSet isEqual:curState] && stateToSet != nil)
     {
         [curState.view removeFromSuperview];
         curState = stateToSet;
         if (curState.view)
         {
-            [curState.view setFrame:self.bounds];
+            (curState.view).frame = self.bounds;
             [self addSubview:curState.view];
         }
         if (curState.bgColor)
