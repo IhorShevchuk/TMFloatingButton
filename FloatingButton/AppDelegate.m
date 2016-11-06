@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  FloatingButton
 //
-//  Created by Admin on 2/10/15.
-//  Copyright (c) 2015 Techmagic. All rights reserved.
+//  Created by Ihor Shevchuk on 2/10/15.
+//  Copyright © 2015 Ihor Shevchuk. All rights reserved.
 //
 
 #import "AppDelegate.h"

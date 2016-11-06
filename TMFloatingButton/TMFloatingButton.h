@@ -2,7 +2,7 @@
 //  FloatingButton.h
 //  Hagtap
 //
-//  Created by Admin on 12/9/14.
+//  Created by Ihor Shevchuk on 12/9/14.
 //  Copyright (c) 2014 Ihor. All rights reserved.
 //
 
