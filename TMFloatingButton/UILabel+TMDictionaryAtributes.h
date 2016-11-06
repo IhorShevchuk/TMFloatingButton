@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UILabel (DictionaryAtributes)
+@interface UILabel (TMDictionaryAtributes)
 /**
  *  applies attributes to UILabel
  *

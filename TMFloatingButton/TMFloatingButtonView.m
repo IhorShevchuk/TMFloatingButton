@@ -7,7 +7,7 @@
 //
 
 #import "TMFloatingButtonView.h"
-#import "UILabel+DictionaryAtributes.h"
+#import "UILabel+TMDictionaryAtributes.h"
 
 typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
     TMFloatingButtonViewTypeIcon = 0,

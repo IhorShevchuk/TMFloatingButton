@@ -8,7 +8,7 @@
 
 #import "TMFloatingButtonState.h"
 #import "TMFloatingButton.h"
-#import "UILabel+DictionaryAtributes.h"
+#import "UILabel+TMDictionaryAtributes.h"
 
 @implementation TMFloatingButtonState
 

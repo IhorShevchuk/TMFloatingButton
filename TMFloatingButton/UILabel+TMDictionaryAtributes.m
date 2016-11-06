@@ -6,9 +6,9 @@
 //  Copyright © 2016 Ihor Shevchuk. All rights reserved.
 //
 
-#import "UILabel+DictionaryAtributes.h"
+#import "UILabel+TMDictionaryAtributes.h"
 
-@implementation UILabel (DictionaryAtributes)
+@implementation UILabel (TMDictionaryAtributes)
 
 -(void)applyAttributes:(NSDictionary *)attributes
 {
