@@ -45,7 +45,7 @@ static const CGFloat kTMFloatingButtonDefaultMargin = 15.0f;
  *
  *  @return Inited and Added to superView TMFloatingButton object
  */
-- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andHideDirection:(FloatingButtonHideDirection)hideDirection andSuperView:(UIView *)superView NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andHideDirection:(FloatingButtonHideDirection)hideDirection andSuperView:(UIView *)superView;
 /**
  *  init's TMFloatingButton object after this you can apply styles
  *

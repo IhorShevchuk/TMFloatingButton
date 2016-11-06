@@ -22,7 +22,7 @@
  *
  *  @return inited TMFloatingButtonState object
  */
-- (instancetype)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
 /**
  *  State(style) object of TMFloatingButton.
  *
