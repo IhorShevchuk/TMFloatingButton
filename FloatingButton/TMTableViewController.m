@@ -7,7 +7,7 @@
 //
 
 #import "TMTableViewController.h"
-#import "TMFloatingButton.h"
+#import <TMFloatingButton/TMFloatingButton.h>
 @interface TMTableViewController ()
 {
     //ADD TO FAVORITES STYLE

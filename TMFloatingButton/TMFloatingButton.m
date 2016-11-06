@@ -8,7 +8,7 @@
 
 #import "TMFloatingButton.h"
 
-const CGFloat kLongTouchTime = 1.0f;
+const CGFloat kLongTouchTime = 0.5f;
 const CGFloat kDraggingSizeCoeficient = 0.15;//15%
 
 @interface TMFloatingButton ()

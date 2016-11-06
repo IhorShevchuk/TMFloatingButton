@@ -11,7 +11,7 @@
 #import "TMFloatingButtonView.h"
 
 @class TMFloatingButton;
-//@class TMFloatingButtonView;
+
 @interface TMFloatingButtonState : NSObject
 /**
  *  State(style) object of TMFloatingButton.

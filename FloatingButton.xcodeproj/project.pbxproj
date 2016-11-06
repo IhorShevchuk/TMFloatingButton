@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		847A38301DCF3AD200CF890A /* TMFloatingButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8484DB6A1A8A08FE004C4E5E /* TMFloatingButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		847A38311DCF3AD500CF890A /* TMFloatingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB6B1A8A08FE004C4E5E /* TMFloatingButton.m */; };
+		847A38321DCF3AD800CF890A /* TMFloatingButtonState.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB486E1CA4A1A800C560AC /* TMFloatingButtonState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		847A38331DCF3ADC00CF890A /* TMFloatingButtonState.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */; };
+		847A38341DCF3ADF00CF890A /* UILabel+DictionaryAtributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB486B1CA4A17700C560AC /* UILabel+DictionaryAtributes.h */; };
+		847A38351DCF3AE200CF890A /* UILabel+DictionaryAtributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486C1CA4A17700C560AC /* UILabel+DictionaryAtributes.m */; };
+		847A38361DCF3AE400CF890A /* TMFloatingButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB48711CA4A25D00C560AC /* TMFloatingButtonView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		847A38371DCF3AE800CF890A /* TMFloatingButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */; };
+		847A38381DCF3BA100CF890A /* TMFloatingButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847A38121DCF3A3600CF890A /* TMFloatingButton.framework */; };
+		847A38391DCF3C0500CF890A /* buttonImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8484DB701A8A157A004C4E5E /* buttonImages.xcassets */; };
 		847AD1881A8B572E004E0798 /* favorites1.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1841A8B572E004E0798 /* favorites1.png */; };
 		847AD1891A8B572E004E0798 /* favorites2.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1851A8B572E004E0798 /* favorites2.png */; };
 		847AD18A1A8B572E004E0798 /* modeEdit.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1861A8B572E004E0798 /* modeEdit.png */; };
@@ -38,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		847A38121DCF3A3600CF890A /* TMFloatingButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMFloatingButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		847A38161DCF3A3700CF890A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847A38221DCF3A3700CF890A /* TMFloatingButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMFloatingButtonTests.m; sourceTree = "<group>"; };
+		847A38241DCF3A3700CF890A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847AD1841A8B572E004E0798 /* favorites1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites1.png; sourceTree = "<group>"; };
 		847AD1851A8B572E004E0798 /* favorites2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites2.png; sourceTree = "<group>"; };
 		847AD1861A8B572E004E0798 /* modeEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modeEdit.png; sourceTree = "<group>"; };
@@ -69,10 +83,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		847A380E1DCF3A3600CF890A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8484DB3D1A8A089B004C4E5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847A38381DCF3BA100CF890A /* TMFloatingButton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +108,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		847A38211DCF3A3700CF890A /* TMFloatingButtonTests */ = {
+			isa = PBXGroup;
+			children = (
+				847A38221DCF3A3700CF890A /* TMFloatingButtonTests.m */,
+				847A38241DCF3A3700CF890A /* Info.plist */,
+			);
+			path = TMFloatingButtonTests;
+			sourceTree = "<group>";
+		};
 		8484DB371A8A089B004C4E5E = {
 			isa = PBXGroup;
 			children = (
 				8484DB691A8A08FE004C4E5E /* TMFloatingButton */,
 				8484DB421A8A089B004C4E5E /* FloatingButton */,
 				8484DB5C1A8A089B004C4E5E /* FloatingButtonTests */,
+				847A38211DCF3A3700CF890A /* TMFloatingButtonTests */,
 				8484DB411A8A089B004C4E5E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +133,7 @@
 			children = (
 				8484DB401A8A089B004C4E5E /* FloatingButton.app */,
 				8484DB591A8A089B004C4E5E /* FloatingButtonTests.xctest */,
+				847A38121DCF3A3600CF890A /* TMFloatingButton.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,13 +197,46 @@
 				84BB48711CA4A25D00C560AC /* TMFloatingButtonView.h */,
 				84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */,
 				8484DB701A8A157A004C4E5E /* buttonImages.xcassets */,
+				847A38161DCF3A3700CF890A /* Info.plist */,
 			);
 			path = TMFloatingButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		847A380F1DCF3A3600CF890A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847A38361DCF3AE400CF890A /* TMFloatingButtonView.h in Headers */,
+				847A38301DCF3AD200CF890A /* TMFloatingButton.h in Headers */,
+				847A38341DCF3ADF00CF890A /* UILabel+DictionaryAtributes.h in Headers */,
+				847A38321DCF3AD800CF890A /* TMFloatingButtonState.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		847A38111DCF3A3600CF890A /* TMFloatingButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847A382D1DCF3A3700CF890A /* Build configuration list for PBXNativeTarget "TMFloatingButton" */;
+			buildPhases = (
+				847A380D1DCF3A3600CF890A /* Sources */,
+				847A380E1DCF3A3600CF890A /* Frameworks */,
+				847A380F1DCF3A3600CF890A /* Headers */,
+				847A38101DCF3A3600CF890A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TMFloatingButton;
+			productName = TMFloatingButton;
+			productReference = 847A38121DCF3A3600CF890A /* TMFloatingButton.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		8484DB3F1A8A089B004C4E5E /* FloatingButton */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8484DB631A8A089B004C4E5E /* Build configuration list for PBXNativeTarget "FloatingButton" */;
@@ -213,8 +279,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0810;
-				ORGANIZATIONNAME = Techmagic;
+				ORGANIZATIONNAME = "Ihor Shevchuk";
 				TargetAttributes = {
+					847A38111DCF3A3600CF890A = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					8484DB3F1A8A089B004C4E5E = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -239,11 +308,20 @@
 			targets = (
 				8484DB3F1A8A089B004C4E5E /* FloatingButton */,
 				8484DB581A8A089B004C4E5E /* FloatingButtonTests */,
+				847A38111DCF3A3600CF890A /* TMFloatingButton */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		847A38101DCF3A3600CF890A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847A38391DCF3C0500CF890A /* buttonImages.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8484DB3E1A8A089B004C4E5E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,6 +349,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		847A380D1DCF3A3600CF890A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847A38331DCF3ADC00CF890A /* TMFloatingButtonState.m in Sources */,
+				847A38371DCF3AE800CF890A /* TMFloatingButtonView.m in Sources */,
+				847A38351DCF3AE200CF890A /* UILabel+DictionaryAtributes.m in Sources */,
+				847A38311DCF3AD500CF890A /* TMFloatingButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8484DB3C1A8A089B004C4E5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,6 +412,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		847A38291DCF3A3700CF890A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TMFloatingButton/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shevchuk.TMFloatingButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		847A382A1DCF3A3700CF890A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TMFloatingButton/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shevchuk.TMFloatingButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		8484DB611A8A089B004C4E5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -412,7 +548,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FloatingButton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "techmagic.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihorshevchuk.FloatingButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -423,7 +559,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FloatingButton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "techmagic.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ihorshevchuk.FloatingButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -467,6 +603,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		847A382D1DCF3A3700CF890A /* Build configuration list for PBXNativeTarget "TMFloatingButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847A38291DCF3A3700CF890A /* Debug */,
+				847A382A1DCF3A3700CF890A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		8484DB3B1A8A089B004C4E5E /* Build configuration list for PBXProject "FloatingButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
