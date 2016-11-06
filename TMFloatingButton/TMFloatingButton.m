@@ -10,11 +10,15 @@
 
 const CGFloat kLongTouchTime = 0.5f;
 const CGFloat kDraggingSizeCoeficient = 0.15;//15%
+NSString *const TMFloatingButtonSavedStateName = @"saved";
+NSString *const TMFloatingButtonNotSavedStateName = @"notSaved";
+NSString *const TMFloatingButtonStaticStateName = @"staticState";
 
 @interface TMFloatingButton ()
 {
     UIActivityIndicatorView *activityIndicator;
     TMFloatingButtonState *curState;
+    NSString *_curButtonStateName;
     NSMutableDictionary *buttonStates;
     //hide & show
     CGRect showFrame;
@@ -41,7 +45,7 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
     return self;
 }
 
-- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion postionandSuperView:(UIView *)superView
+- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andSuperView:(UIView *)superView
 {
     self = [self initWithWidth:width withMargin:margin andPosition:postion andHideDirection:FloatingButtonHideDirectionDown andSuperView:superView];
     return self;
@@ -199,7 +203,6 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
 
 - (void)updateFrameWithPosition:(FloatingButtonPosition)postion
 {
-    
     activityIndicator.center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);
     
     if(!CGRectEqualToRect(showFrame,CGRectZero))
@@ -450,7 +453,13 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
     [self addState:state forName:stateName];
     [self setButtonState:stateName];
 }
-- (void)setButtonState:(NSString *)name {
+- (void)setButtonState:(NSString *)name
+{
+    if(_curButtonStateName != nil && [name isEqualToString:_curButtonStateName])
+    {
+        return;
+    }
+    
     TMFloatingButtonState *stateToSet = buttonStates[name];
     if (![stateToSet isEqual:curState] && stateToSet != nil)
     {
@@ -465,19 +474,28 @@ const CGFloat kDraggingSizeCoeficient = 0.15;//15%
         {
             self.backgroundColor = curState.bgColor;
         }
+        _curButtonStateName = name;
     }
 }
+
+- (NSString *)buttonState
+{
+    return _curButtonStateName;
+}
 #pragma mark - styles
-+ (void)addFavoritesStyleToButton:(TMFloatingButton *)button {
++ (void)addFavoritesStyleToButton:(TMFloatingButton *)button
+{
     //NOT SAVED
-    [button addStateWithIcon:[UIImage imageNamed:@"white-star"] andBackgroundColor:[UIColor colorWithRed:0.662 green:0.088 blue:0.719 alpha:0.800] forName:@"notSaved" applyRightNow:NO];
+    [button addStateWithIcon:[UIImage imageNamed:@"white-star"] andBackgroundColor:[UIColor colorWithRed:0.662 green:0.088 blue:0.719 alpha:0.800] forName:TMFloatingButtonNotSavedStateName applyRightNow:NO];
     //SAVED
-    [button addStateWithIcon:[UIImage imageNamed:@"checkmark-white"] andText:NSLocalizedString(@"Saved", @"Saved") withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]} andBackgroundColor:[UIColor colorWithRed:0.101 green:0.510 blue:0.133 alpha:0.800] forName:@"saved" applyRightNow:NO];
+    [button addStateWithIcon:[UIImage imageNamed:@"checkmark-white"] andText:NSLocalizedString(@"Saved", @"Saved") withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]} andBackgroundColor:[UIColor colorWithRed:0.101 green:0.510 blue:0.133 alpha:0.800] forName:TMFloatingButtonSavedStateName applyRightNow:NO];
 }
-+ (void)addModeEditStyleToButton:(TMFloatingButton *)button {
-    [button addStateWithIcon:[UIImage imageNamed:@"white-mode-edit"]  andBackgroundColor:[UIColor colorWithRed:0.792 green:0.169 blue:0.149 alpha:1.000] forName:@"statickStyle" applyRightNow:YES];
++ (void)addModeEditStyleToButton:(TMFloatingButton *)button
+{
+    [button addStateWithIcon:[UIImage imageNamed:@"white-mode-edit"]  andBackgroundColor:[UIColor colorWithRed:0.792 green:0.169 blue:0.149 alpha:1.000] forName:TMFloatingButtonStaticStateName applyRightNow:YES];
 }
-+ (void)addMessageStyleToButton:(TMFloatingButton *)button {
-    [button addStateWithIcon:[UIImage imageNamed:@"message_grey"] andBackgroundColor:[UIColor whiteColor] forName:@"staticStyle" applyRightNow:YES];
++ (void)addMessageStyleToButton:(TMFloatingButton *)button
+{
+    [button addStateWithIcon:[UIImage imageNamed:@"message_grey"] andBackgroundColor:[UIColor whiteColor] forName:TMFloatingButtonStaticStateName applyRightNow:YES];
 }
 @end
