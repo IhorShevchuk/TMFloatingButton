@@ -54,7 +54,7 @@ You can use one of next methods to create your own style
 ```
 - To add state with icon and text use next code
 ```objectivec
-   [customIconAndTextButton addStateWithIcon:[UIImage imageNamed:@"icon-image"] andText:@"Custom text" withAttributestextAttributesDictionary andBackgroundColor:bgColor forName:@"CustomTextAndIconState" applyRightNow:NO];
+   [customIconAndTextButton addStateWithIcon:[UIImage imageNamed:@"icon-image"] andText:@"Custom text" withAttributes:textAttributesDictionary andBackgroundColor:bgColor forName:@"CustomTextAndIconState" applyRightNow:NO];
 ```
 - Or you can design your own UIView and set using next code
 ```objectivec

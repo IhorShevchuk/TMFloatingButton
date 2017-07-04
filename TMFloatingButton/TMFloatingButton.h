@@ -2,13 +2,16 @@
 //  FloatingButton.h
 //  Hagtap
 //
-//  Created by Admin on 12/9/14.
+//  Created by Ihor Shevchuk on 12/9/14.
 //  Copyright (c) 2014 Ihor. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 #import "TMFloatingButtonState.h"
+
+FOUNDATION_EXPORT NSString *const TMFloatingButtonSavedStateName;
+FOUNDATION_EXPORT NSString *const TMFloatingButtonNotSavedStateName;
 
 /**
  TMFloatingButton's postion on super view
@@ -32,7 +35,9 @@ typedef NS_ENUM(unsigned int, FloatingButtonHideDirection) {
 static const CGFloat kTMFloatingButtonDefaultSize = 60.0f;
 static const CGFloat kTMFloatingButtonDefaultMargin = 15.0f;
 
+
 //button that can animation hide and change different view stetes
+IB_DESIGNABLE
 @interface TMFloatingButton : UIButton
 /**
  *  init's TMFloatingButton object after this you can apply styles
@@ -74,7 +79,7 @@ static const CGFloat kTMFloatingButtonDefaultMargin = 15.0f;
  *
  *  @return Inited and Added to superView TMFloatingButton object
  */
-- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion postionandSuperView:(UIView *)superView;
+- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andSuperView:(UIView *)superView;
 
 /**
  *  Set this property to NO if need Square button, or YES to Round Button
@@ -106,6 +111,11 @@ static const CGFloat kTMFloatingButtonDefaultMargin = 15.0f;
  *  
  */
 @property (nonatomic, assign) BOOL canBeMoved;
+
+/**
+ *  current button's state name
+ */
+@property (nonatomic, strong) NSString *buttonState;
 
 /**
  *  Hides Button
@@ -180,14 +190,7 @@ static const CGFloat kTMFloatingButtonDefaultMargin = 15.0f;
  *  @param stateName State Name to SET this state in other method
  */
 - (void)addAndApplyState:(TMFloatingButtonState *)state forName:(NSString *)stateName;
-/**
- *  Sets state with next name
- *
- *  @param name State's name
- */
-- (void)setButtonState:(NSString *)name;
 
-//- (id)initWithIcon:(UIImage *)icon andText:(NSString *)text andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button;
 #pragma mark - STYLES
 /**
  *  Applies FavoritesStyle to Button

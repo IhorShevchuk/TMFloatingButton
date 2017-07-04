@@ -2,13 +2,13 @@
 //  UILabel+DictionaryAtributes.m
 //  FloatingButton
 //
-//  Created by Admin on 3/25/16.
-//  Copyright © 2016 Techmagic. All rights reserved.
+//  Created by Ihor Shevchuk on 3/25/16.
+//  Copyright © 2016 Ihor Shevchuk. All rights reserved.
 //
 
-#import "UILabel+DictionaryAtributes.h"
+#import "UILabel+TMDictionaryAtributes.h"
 
-@implementation UILabel (DictionaryAtributes)
+@implementation UILabel (TMDictionaryAtributes)
 
 -(void)applyAttributes:(NSDictionary *)attributes
 {

@@ -11,8 +11,8 @@
 		847A38311DCF3AD500CF890A /* TMFloatingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB6B1A8A08FE004C4E5E /* TMFloatingButton.m */; };
 		847A38321DCF3AD800CF890A /* TMFloatingButtonState.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB486E1CA4A1A800C560AC /* TMFloatingButtonState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		847A38331DCF3ADC00CF890A /* TMFloatingButtonState.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */; };
-		847A38341DCF3ADF00CF890A /* UILabel+DictionaryAtributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB486B1CA4A17700C560AC /* UILabel+DictionaryAtributes.h */; };
-		847A38351DCF3AE200CF890A /* UILabel+DictionaryAtributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486C1CA4A17700C560AC /* UILabel+DictionaryAtributes.m */; };
+		847A38341DCF3ADF00CF890A /* UILabel+TMDictionaryAtributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB486B1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.h */; };
+		847A38351DCF3AE200CF890A /* UILabel+TMDictionaryAtributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486C1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.m */; };
 		847A38361DCF3AE400CF890A /* TMFloatingButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB48711CA4A25D00C560AC /* TMFloatingButtonView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		847A38371DCF3AE800CF890A /* TMFloatingButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */; };
 		847A38381DCF3BA100CF890A /* TMFloatingButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847A38121DCF3A3600CF890A /* TMFloatingButton.framework */; };
@@ -32,7 +32,7 @@
 		8484DB6F1A8A0A88004C4E5E /* TMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB6E1A8A0A88004C4E5E /* TMTableViewController.m */; };
 		8484DB711A8A157A004C4E5E /* buttonImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8484DB701A8A157A004C4E5E /* buttonImages.xcassets */; };
 		84B7039C1A935F04006E07E1 /* customText.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B7039B1A935F04006E07E1 /* customText.png */; };
-		84BB486D1CA4A17700C560AC /* UILabel+DictionaryAtributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486C1CA4A17700C560AC /* UILabel+DictionaryAtributes.m */; };
+		84BB486D1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486C1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.m */; };
 		84BB48701CA4A1A800C560AC /* TMFloatingButtonState.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */; };
 		84BB48731CA4A25D00C560AC /* TMFloatingButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */; };
 /* End PBXBuildFile section */
@@ -74,8 +74,8 @@
 		8484DB6E1A8A0A88004C4E5E /* TMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTableViewController.m; sourceTree = "<group>"; };
 		8484DB701A8A157A004C4E5E /* buttonImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = buttonImages.xcassets; sourceTree = "<group>"; };
 		84B7039B1A935F04006E07E1 /* customText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customText.png; sourceTree = "<group>"; };
-		84BB486B1CA4A17700C560AC /* UILabel+DictionaryAtributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DictionaryAtributes.h"; sourceTree = "<group>"; };
-		84BB486C1CA4A17700C560AC /* UILabel+DictionaryAtributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DictionaryAtributes.m"; sourceTree = "<group>"; };
+		84BB486B1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TMDictionaryAtributes.h"; sourceTree = "<group>"; };
+		84BB486C1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TMDictionaryAtributes.m"; sourceTree = "<group>"; };
 		84BB486E1CA4A1A800C560AC /* TMFloatingButtonState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMFloatingButtonState.h; sourceTree = "<group>"; };
 		84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMFloatingButtonState.m; sourceTree = "<group>"; };
 		84BB48711CA4A25D00C560AC /* TMFloatingButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMFloatingButtonView.h; sourceTree = "<group>"; };
@@ -192,8 +192,8 @@
 				8484DB6B1A8A08FE004C4E5E /* TMFloatingButton.m */,
 				84BB486E1CA4A1A800C560AC /* TMFloatingButtonState.h */,
 				84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */,
-				84BB486B1CA4A17700C560AC /* UILabel+DictionaryAtributes.h */,
-				84BB486C1CA4A17700C560AC /* UILabel+DictionaryAtributes.m */,
+				84BB486B1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.h */,
+				84BB486C1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.m */,
 				84BB48711CA4A25D00C560AC /* TMFloatingButtonView.h */,
 				84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */,
 				8484DB701A8A157A004C4E5E /* buttonImages.xcassets */,
@@ -211,7 +211,7 @@
 			files = (
 				847A38361DCF3AE400CF890A /* TMFloatingButtonView.h in Headers */,
 				847A38301DCF3AD200CF890A /* TMFloatingButton.h in Headers */,
-				847A38341DCF3ADF00CF890A /* UILabel+DictionaryAtributes.h in Headers */,
+				847A38341DCF3ADF00CF890A /* UILabel+TMDictionaryAtributes.h in Headers */,
 				847A38321DCF3AD800CF890A /* TMFloatingButtonState.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +355,7 @@
 			files = (
 				847A38331DCF3ADC00CF890A /* TMFloatingButtonState.m in Sources */,
 				847A38371DCF3AE800CF890A /* TMFloatingButtonView.m in Sources */,
-				847A38351DCF3AE200CF890A /* UILabel+DictionaryAtributes.m in Sources */,
+				847A38351DCF3AE200CF890A /* UILabel+TMDictionaryAtributes.m in Sources */,
 				847A38311DCF3AD500CF890A /* TMFloatingButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,7 +369,7 @@
 				8484DB6C1A8A08FE004C4E5E /* TMFloatingButton.m in Sources */,
 				8484DB491A8A089B004C4E5E /* AppDelegate.m in Sources */,
 				8484DB6F1A8A0A88004C4E5E /* TMTableViewController.m in Sources */,
-				84BB486D1CA4A17700C560AC /* UILabel+DictionaryAtributes.m in Sources */,
+				84BB486D1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.m in Sources */,
 				8484DB461A8A089B004C4E5E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,6 +610,7 @@
 				847A382A1DCF3A3700CF890A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8484DB3B1A8A089B004C4E5E /* Build configuration list for PBXProject "FloatingButton" */ = {
 			isa = XCConfigurationList;
