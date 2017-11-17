@@ -84,7 +84,7 @@ You can simply show `UIActivityIndicatorView` using this code:
          });
   ```
 See example code for more details
-#####TODO
+##### TODO
 - ~~Ability to move button on long tap~~
 
 ## License
