@@ -41,7 +41,9 @@ For now you can use next styles
 - _Message Style_  -  New message button
 
 ![](https://raw.github.com/IhorShevchuk/TMFloatingButton/master/FloatingButton/newMessage.png)
-####How can I design my own?
+
+#### How can I design my own?
+
 You can use one of next methods to create your own style 
 - To add state with text use next code:
 ```objectivec
@@ -60,18 +62,18 @@ You can use one of next methods to create your own style
 ```objectivec
     [customViewButton addStateWithView:customView andBackgroundColor:bgColor forName:@"CustomViewState" applyRightNow:YES];
 ```
-#####About ApplyRightNow and TextAttributesDictionary parameters
+##### About ApplyRightNow and TextAttributesDictionary parameters
 - `BOOL` parameter ApplyRightNow is using when you need set this state immediatly after adding state
 - TextAttributesDictionary is `NSDictionary` of text attributes (ex:`NSFontAttributeName`,`NSForegroundColorAttributeName` etc.)
   
-####Why I need to create states?
+#### Why I need to create states?
 Sometimes button can change states during the app runing. 
 Example add to favorites button that indicates if object(artilce,words,tags) added to favorites or not. And you can easy set  this states with initing and after that just change states in different places in code
   ```objectivec
  [button setButtonState:@"myState2"];
   ```
 
-#####How can I show `UIActivityIndicatorView` while button's state is changing?
+##### How can I show `UIActivityIndicatorView` while button's state is changing?
 You can simply show `UIActivityIndicatorView` using this code:
 
  ```objectivec
