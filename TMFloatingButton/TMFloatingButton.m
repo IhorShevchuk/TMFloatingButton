@@ -29,29 +29,46 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
     BOOL canBeDragged;
 }
 
+@property (assign, nonatomic) BOOL isHidden;
+
 @end
 
 @implementation TMFloatingButton
 
 - (instancetype)initWithSuperView:(UIView *)superView
 {
-    self = [self initWithWidth:kTMFloatingButtonDefaultSize withMargin:kTMFloatingButtonDefaultMargin andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:superView];
+    self = [self initWithWidth:kTMFloatingButtonDefaultSize
+                    withMargin:kTMFloatingButtonDefaultMargin
+                   andPosition:FloatingButtonPositionBottomRight
+              andHideDirection:FloatingButtonHideDirectionDown
+                  andSuperView:superView];
     return self;
 }
 
 - (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andSuperView:(UIView *)superView
 {
-    self = [self initWithWidth:width withMargin:margin andPosition:FloatingButtonPositionBottomRight andHideDirection:FloatingButtonHideDirectionDown andSuperView:superView];
+    self = [self initWithWidth:width withMargin:margin
+                   andPosition:FloatingButtonPositionBottomRight
+              andHideDirection:FloatingButtonHideDirectionDown
+                  andSuperView:superView];
     return self;
 }
 
 - (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andSuperView:(UIView *)superView
 {
-    self = [self initWithWidth:width withMargin:margin andPosition:postion andHideDirection:FloatingButtonHideDirectionDown andSuperView:superView];
+    self = [self initWithWidth:width
+                    withMargin:margin
+                   andPosition:postion
+              andHideDirection:FloatingButtonHideDirectionDown
+                  andSuperView:superView];
     return self;
 }
 
-- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andHideDirection:(FloatingButtonHideDirection)hideDirection andSuperView:(UIView *)superView {
+- (instancetype)initWithWidth:(CGFloat)width
+                   withMargin:(CGFloat)margin
+                  andPosition:(FloatingButtonPosition)postion
+             andHideDirection:(FloatingButtonHideDirection)hideDirection
+                 andSuperView:(UIView *)superView {
     self = [super init];
     
     if (self)
@@ -63,6 +80,7 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
         showFrame = CGRectZero;
         _isRounded = YES;
         _showShadow = YES;
+        _isHidden = NO;
         //init activity indicator
         activityIndicator  = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         activityIndicator.hidesWhenStopped = YES;
@@ -121,7 +139,8 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
     
 }
 
-- (void)hideAnimated:(BOOL)animated {
+- (void)hideAnimated:(BOOL)animated
+{
     if (!self.superview)
     {
         return;
@@ -130,12 +149,15 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
     CGRect hideFrame = [self hideFrameForHideDirection:_hideDirection];
     if (animated)
     {
+        
         [UIView animateWithDuration:0.5 animations: ^(void) {
+            self.isHidden = YES;
             self.frame = hideFrame;
         } completion: ^(BOOL finished)
          {}];
     }
     else {
+        self.isHidden = YES;
         self.frame = hideFrame;
     }
 }
@@ -149,16 +171,19 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
     if (animated)
     {
         [UIView animateWithDuration:0.5 animations: ^(void) {
+            self.isHidden = NO;
             self.frame = showFrame;
         } completion: ^(BOOL finished)
          {}];
     }
     else {
+        self.isHidden = NO;
         self.frame = showFrame;
     }
 }
 
-- (BOOL)addAsSubviewToView:(UIView *)superView {
+- (BOOL)addAsSubviewToView:(UIView *)superView
+{
     if (superView == nil)
     {
         NSLog(@"WARNING!: superview is nil!");
@@ -169,7 +194,8 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
     return YES;
 }
 
-- (void)animateActivityIndicatorStart:(BOOL)animate {
+- (void)animateActivityIndicatorStart:(BOOL)animate
+{
     if (animate)
     {
         [curState.view removeFromSuperview];
@@ -203,11 +229,16 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
 
 - (void)updateFrameWithPosition:(FloatingButtonPosition)postion
 {
+    if(self.isHidden)
+    {
+        return;
+    }
+    
     activityIndicator.center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);
     
-    if(!CGRectEqualToRect(showFrame,CGRectZero))
+    if(!CGRectEqualToRect(showFrame, CGRectZero))
     {
-        if(CGRectEqualToRect(showFrame,self.frame))
+        if(CGRectEqualToRect(showFrame, self.frame))
         {
             return;
         }
@@ -216,23 +247,33 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
         return;
     }
     
+    UIEdgeInsets safeAreaInsets;
+    if (@available(iOS 11.0, *))
+    {
+        safeAreaInsets = self.superview.safeAreaInsets;
+    }
+    else
+    {
+        safeAreaInsets = UIEdgeInsetsZero;
+    }
+    
     //set frame that depends on 'postion'
     CGRect frameForButton;
     switch (postion) {
         case FloatingButtonPositionTopLeft:
-            frameForButton = CGRectMake(_margin, _margin, _size, _size);
+            frameForButton = CGRectMake(_margin + safeAreaInsets.left, _margin + safeAreaInsets.top, _size, _size);
             break;
             
         case FloatingButtonPositionTopRight:
-            frameForButton = CGRectMake(self.superview.frame.size.width - _size - _margin, _margin, _size, _size);
+            frameForButton = CGRectMake(self.superview.frame.size.width - _size - _margin - safeAreaInsets.right, _margin + safeAreaInsets.top, _size, _size);
             break;
             
         case FloatingButtonPositionBottomLeft:
-            frameForButton = CGRectMake(_margin, self.superview.frame.size.height - _size - _margin, _size, _size);
+            frameForButton = CGRectMake(_margin + safeAreaInsets.left, self.superview.frame.size.height - _size - _margin - safeAreaInsets.bottom, _size, _size);
             break;
             
         case FloatingButtonPositionBottomRight:
-            frameForButton = CGRectMake(self.superview.frame.size.width - _size - _margin, self.superview.frame.size.height - _size - _margin, _size, _size);
+            frameForButton = CGRectMake(self.superview.frame.size.width - _size - _margin - safeAreaInsets.right, self.superview.frame.size.height - _size - _margin - safeAreaInsets.bottom, _size, _size);
             break;
             
         default:
@@ -322,35 +363,51 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
 - (void)moveButtonToBorderIfNeeded
 {
     CGRect currentFrame = self.frame;
-    if(currentFrame.origin.x < 0 || currentFrame.origin.y < 0 || CGRectGetMaxX(currentFrame) > self.superview.frame.size.width || CGRectGetMaxY(currentFrame) > self.superview.frame.size.height)
+    CGRect superViewFrame = self.superview.frame;
+    
+    UIEdgeInsets safeAreaInsets;
+    if (@available(iOS 11.0, *))
+    {
+        safeAreaInsets = self.superview.safeAreaInsets;
+    }
+    else
+    {
+        safeAreaInsets = UIEdgeInsetsZero;
+    }
+    
+    if(currentFrame.origin.x < safeAreaInsets.left
+    || currentFrame.origin.y < safeAreaInsets.top
+    || CGRectGetMaxX(currentFrame) > (superViewFrame.size.width - safeAreaInsets.right)
+    || CGRectGetMaxY(currentFrame) > superViewFrame.size.height - safeAreaInsets.bottom)
     {
         
         CGRect newBoundsFrame = currentFrame;
-        if(newBoundsFrame.origin.x < 0)
+        if(newBoundsFrame.origin.x < safeAreaInsets.left)
         {
-            newBoundsFrame.origin.x = 0;
+            newBoundsFrame.origin.x = safeAreaInsets.left;
         }
         
-        if(newBoundsFrame.origin.y < 0)
+        if(newBoundsFrame.origin.y < safeAreaInsets.top)
         {
-            newBoundsFrame.origin.y = 0;
+            newBoundsFrame.origin.y = safeAreaInsets.top;
         }
         
-        if(CGRectGetMaxX(newBoundsFrame) > self.superview.frame.size.width)
+        if(CGRectGetMaxX(newBoundsFrame) > superViewFrame.size.width - safeAreaInsets.right)
         {
-            newBoundsFrame.origin.x = self.superview.frame.size.width - newBoundsFrame.size.width;
+            newBoundsFrame.origin.x = superViewFrame.size.width - newBoundsFrame.size.width - safeAreaInsets.right;
         }
         
-        if(CGRectGetMaxY(newBoundsFrame) > self.superview.frame.size.height)
+        if(CGRectGetMaxY(newBoundsFrame) > superViewFrame.size.height - (safeAreaInsets.bottom))
         {
-            newBoundsFrame.origin.y = self.superview.frame.size.height - newBoundsFrame.size.height;
+            newBoundsFrame.origin.y = superViewFrame.size.height - newBoundsFrame.size.height - safeAreaInsets.bottom;
         }
         
         [UIView animateWithDuration:0.1 animations:^
          {
-             showFrame = newBoundsFrame;
+             
              self.frame = newBoundsFrame;
          }];
+        showFrame = newBoundsFrame;
     }
 }
 
@@ -384,8 +441,8 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
     [self endDragging];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
     [super touchesMoved:touches withEvent:event];
     if([NSDate date].timeIntervalSince1970 - time.timeIntervalSince1970 > kLongTouchTime)
     {
@@ -406,7 +463,8 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
 }
 
 #pragma mark - STATES MANAGEMENT
-- (void)addState:(TMFloatingButtonState *)state forName:(NSString *)stateName {
+- (void)addState:(TMFloatingButtonState *)state forName:(NSString *)stateName
+{
     if (state && stateName)
     {
         buttonStates[stateName] = state;
@@ -421,6 +479,7 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
         [self setButtonState:stateName];
     }
 }
+
 - (void)addStateWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow
 {
     TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithText:text withAttributes:attributes andBackgroundColor:bgColor forButton:self];
@@ -430,6 +489,7 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
         [self setButtonState:stateName];
     }
 }
+
 - (void)addStateWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow
 {
     TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithIcon:icon andBackgroundColor:bgColor forButton:self];
@@ -439,6 +499,7 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
         [self setButtonState:stateName];
     }
 }
+
 - (void)addStateWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow
 {
     TMFloatingButtonState *newState =  [[TMFloatingButtonState alloc]initWithView:view andBackgroundColor:bgColor forButton:self];
@@ -448,11 +509,13 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
         [self setButtonState:stateName];
     }
 }
+
 - (void)addAndApplyState:(TMFloatingButtonState *)state forName:(NSString *)stateName
 {
     [self addState:state forName:stateName];
     [self setButtonState:stateName];
 }
+
 - (void)setButtonState:(NSString *)name
 {
     if(_curButtonStateName != nil && [name isEqualToString:_curButtonStateName])
@@ -482,6 +545,7 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
 {
     return _curButtonStateName;
 }
+
 #pragma mark - styles
 + (void)addFavoritesStyleToButton:(TMFloatingButton *)button
 {
@@ -490,10 +554,12 @@ NSString *const TMFloatingButtonStaticStateName = @"staticState";
     //SAVED
     [button addStateWithIcon:[UIImage imageNamed:@"checkmark-white"] andText:NSLocalizedString(@"Saved", @"Saved") withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]} andBackgroundColor:[UIColor colorWithRed:0.101 green:0.510 blue:0.133 alpha:0.800] forName:TMFloatingButtonSavedStateName applyRightNow:NO];
 }
+
 + (void)addModeEditStyleToButton:(TMFloatingButton *)button
 {
     [button addStateWithIcon:[UIImage imageNamed:@"white-mode-edit"]  andBackgroundColor:[UIColor colorWithRed:0.792 green:0.169 blue:0.149 alpha:1.000] forName:TMFloatingButtonStaticStateName applyRightNow:YES];
 }
+
 + (void)addMessageStyleToButton:(TMFloatingButton *)button
 {
     [button addStateWithIcon:[UIImage imageNamed:@"message_grey"] andBackgroundColor:[UIColor whiteColor] forName:TMFloatingButtonStaticStateName applyRightNow:YES];
