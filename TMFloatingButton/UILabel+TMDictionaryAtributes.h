@@ -14,5 +14,5 @@
  *
  *  @param attributes Dictionary of attributes with keys: NSFontAttributeName, NSForegroundColorAttributeName etc.
  */
--(void)applyAttributes:(NSDictionary*)attributes;
+- (void)tmApplyAttributes:(NSDictionary*)attributes;
 @end

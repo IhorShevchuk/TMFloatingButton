@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "TMFloatingButtonView.h"
+
+#import <TMFloatingButton/TMFloatingButtonView.h>
 
 @class TMFloatingButton;
 

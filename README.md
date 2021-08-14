@@ -9,8 +9,8 @@ With this simple project you can add and design your material round button like 
 2) Import file `TMFloatingButton.h` to files where buttons will be shown
 
 ### Requirements
-* Xcode 5 or higher
-* iOS 7.0 or higher
+* Xcode 11 or higher
+* iOS 13.0 or higher
 * ARC
 
 ## Usage

@@ -63,7 +63,7 @@
     
     [floatingModeEditButton addStateWithText:@"Custom text"
                               withAttributes:@{
-                                               NSForegroundColorAttributeName:[UIColor colorWithRed:0.000 green:0.727 blue:0.000 alpha:1.000],
+                                               NSForegroundColorAttributeName:[UIColor colorWithRed:1.000 green:0.227 blue:0.000 alpha:1.000],
                                                NSFontAttributeName:[UIFont boldSystemFontOfSize:9]}
                           andBackgroundColor:[UIColor colorWithRed:0.792 green:0.615 blue:0.149 alpha:1.000]
                                      forName:@"CustomStateText"
@@ -87,17 +87,22 @@
 - (void)addToFavoritesAction
 {
     [floatingButton animateActivityIndicatorStart:YES];
+    __weak typeof(self) weakSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        added = !added;
-        if(added)
+        typeof(self) strongSelf = weakSelf;
+        if(strongSelf)
         {
-            [floatingButton setButtonState:@"saved"];
+            strongSelf->added = !strongSelf->added;
+            if(strongSelf->added)
+            {
+                [strongSelf->floatingButton setButtonState:@"saved"];
+            }
+            else
+            {
+                [strongSelf->floatingButton setButtonState:@"notSaved"];
+            }
+            [strongSelf->floatingButton animateActivityIndicatorStart:NO];
         }
-        else
-        {
-            [floatingButton setButtonState:@"notSaved"];
-        }
-        [floatingButton animateActivityIndicatorStart:NO];
     });
 }
 #pragma mark  UIScrollViewDelegate

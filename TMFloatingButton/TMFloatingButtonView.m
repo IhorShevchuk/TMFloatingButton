@@ -52,7 +52,7 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
         }
         textLabel = [[UILabel alloc]init];
         textLabel.text = text;
-        [textLabel applyAttributes:attributes];
+        [textLabel tmApplyAttributes:attributes];
         [self addSubview:textLabel];
         [self updateFrames];
     }
@@ -71,8 +71,9 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
             icon = nil;
         }
         
-        icon = [[UIImageView alloc]init];
+        icon = [[UIImageView alloc] init];
         icon.image = image;
+        icon.tintColor = [UIColor whiteColor];
         [self addSubview:icon];
         [self updateFrames];
     }
@@ -91,8 +92,9 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
             icon = nil;
         }
         
-        icon = [[UIImageView alloc]init];
+        icon = [[UIImageView alloc] init];
         icon.image = image;
+        icon.tintColor = [UIColor whiteColor];
         [self addSubview:icon];
         
         if(textLabel)
@@ -100,9 +102,9 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
             [textLabel removeFromSuperview];
             textLabel = nil;
         }
-        textLabel = [[UILabel alloc]init];
+        textLabel = [[UILabel alloc] init];
         textLabel.text = text;
-        [textLabel applyAttributes:attributes];
+        [textLabel tmApplyAttributes:attributes];
         [self addSubview:textLabel];
         
         [self updateFrames];

@@ -10,7 +10,7 @@
 
 @implementation UILabel (TMDictionaryAtributes)
 
--(void)applyAttributes:(NSDictionary *)attributes
+- (void)tmApplyAttributes:(NSDictionary *)attributes
 {
     NSMutableDictionary *attributesToSet;
     if(attributes)

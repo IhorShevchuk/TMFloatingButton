@@ -54,11 +54,11 @@
     }
     else if(text != nil)
     {
-        stateView = [[TMFloatingButtonView alloc]initWithText:text withAttributes:attributes andBackgroundColor:bgColor];
+        stateView = [[TMFloatingButtonView alloc] initWithText:text withAttributes:attributes andBackgroundColor:bgColor];
     }
     else if(icon != nil)
     {
-        stateView = [[TMFloatingButtonView alloc]initWithIcon:icon andBackgroundColor:bgColor];
+        stateView = [[TMFloatingButtonView alloc] initWithIcon:icon andBackgroundColor:bgColor];
     }
     stateView.userInteractionEnabled = NO;
     self = [self initWithView:stateView andBackgroundColor:bgColor forButton:button];

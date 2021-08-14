@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TMFloatingButtonState.h"
+#import <TMFloatingButton/TMFloatingButtonState.h>
 
 FOUNDATION_EXPORT NSString *const TMFloatingButtonSavedStateName;
 FOUNDATION_EXPORT NSString *const TMFloatingButtonNotSavedStateName;
