@@ -16,7 +16,7 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
     TMFloatingButtonViewTypeView
 };
 
-@interface TMFloatingButtonView()
+@interface TMFloatingButtonView ()
 {
     UILabel *textLabel;
     UIImageView *icon;
@@ -26,10 +26,10 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
 @end
 
 @implementation TMFloatingButtonView
-- (instancetype)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor 
+- (instancetype)initWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor
 {
     self = [super init];
-    if(self)
+    if (self)
     {
         type = TMFloatingButtonViewTypeView;
         subview = view;
@@ -42,15 +42,15 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
 - (instancetype)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor
 {
     self = [super init];
-    if(self)
+    if (self)
     {
         type = TMFloatingButtonViewTypeText;
-        if(textLabel)
+        if (textLabel)
         {
             [textLabel removeFromSuperview];
             textLabel = nil;
         }
-        textLabel = [[UILabel alloc]init];
+        textLabel = [[UILabel alloc] init];
         textLabel.text = text;
         [textLabel tmApplyAttributes:attributes];
         [self addSubview:textLabel];
@@ -62,15 +62,15 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
 - (instancetype)initWithIcon:(UIImage *)image andBackgroundColor:(UIColor *)bgColor
 {
     self = [super init];
-    if(self)
+    if (self)
     {
         type = TMFloatingButtonViewTypeIcon;
-        if(icon)
+        if (icon)
         {
             [icon removeFromSuperview];
             icon = nil;
         }
-        
+
         icon = [[UIImageView alloc] init];
         icon.image = image;
         icon.tintColor = [UIColor whiteColor];
@@ -83,21 +83,21 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
 - (instancetype)initWithIcon:(UIImage *)image andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor
 {
     self = [super init];
-    if(self)
+    if (self)
     {
         type = TMFloatingButtonViewTypeIconWithText;
-        if(icon)
+        if (icon)
         {
             [icon removeFromSuperview];
             icon = nil;
         }
-        
+
         icon = [[UIImageView alloc] init];
         icon.image = image;
         icon.tintColor = [UIColor whiteColor];
         [self addSubview:icon];
-        
-        if(textLabel)
+
+        if (textLabel)
         {
             [textLabel removeFromSuperview];
             textLabel = nil;
@@ -106,7 +106,7 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
         textLabel.text = text;
         [textLabel tmApplyAttributes:attributes];
         [self addSubview:textLabel];
-        
+
         [self updateFrames];
     }
     return self;
@@ -114,7 +114,8 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
 
 - (void)updateFrames
 {
-    switch (type) {
+    switch (type)
+    {
         case TMFloatingButtonViewTypeIcon:
         {
             CGFloat margin = 13;
@@ -124,13 +125,13 @@ typedef NS_ENUM(unsigned int, TMFloatingButtonViewType) {
         case TMFloatingButtonViewTypeText:
         {
             CGFloat margin = 3.0;
-            textLabel.frame = CGRectMake(margin,(self.frame.size.height - 40) / 2.0, self.frame.size.width - 2.0 * margin, 40);
+            textLabel.frame = CGRectMake(margin, (self.frame.size.height - 40) / 2.0, self.frame.size.width - 2.0 * margin, 40);
         }
             break;
         case TMFloatingButtonViewTypeIconWithText:
         {
             CGFloat margin = 15;
-            
+
             icon.frame = CGRectMake(margin, margin, self.frame.size.width - 2 * margin, self.frame.size.height - 2 * margin);
             CGRect imageFrame = icon.frame;
             imageFrame.origin.y = 9;

@@ -3,27 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6912B2CF26C84269008191ED /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6912B2CD26C84269008191ED /* LICENSE */; };
-		6912B2D026C84269008191ED /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6912B2CE26C84269008191ED /* README.md */; };
-		847A38301DCF3AD200CF890A /* TMFloatingButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8484DB6A1A8A08FE004C4E5E /* TMFloatingButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		847A38311DCF3AD500CF890A /* TMFloatingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB6B1A8A08FE004C4E5E /* TMFloatingButton.m */; };
-		847A38321DCF3AD800CF890A /* TMFloatingButtonState.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB486E1CA4A1A800C560AC /* TMFloatingButtonState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		847A38331DCF3ADC00CF890A /* TMFloatingButtonState.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */; };
-		847A38341DCF3ADF00CF890A /* UILabel+TMDictionaryAtributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB486B1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.h */; };
-		847A38351DCF3AE200CF890A /* UILabel+TMDictionaryAtributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB486C1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.m */; };
-		847A38361DCF3AE400CF890A /* TMFloatingButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 84BB48711CA4A25D00C560AC /* TMFloatingButtonView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		847A38371DCF3AE800CF890A /* TMFloatingButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */; };
-		847A38381DCF3BA100CF890A /* TMFloatingButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847A38121DCF3A3600CF890A /* TMFloatingButton.framework */; };
-		847A38391DCF3C0500CF890A /* buttonImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8484DB701A8A157A004C4E5E /* buttonImages.xcassets */; };
-		847AD1881A8B572E004E0798 /* favorites1.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1841A8B572E004E0798 /* favorites1.png */; };
-		847AD1891A8B572E004E0798 /* favorites2.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1851A8B572E004E0798 /* favorites2.png */; };
-		847AD18A1A8B572E004E0798 /* modeEdit.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1861A8B572E004E0798 /* modeEdit.png */; };
-		847AD18B1A8B572E004E0798 /* newMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 847AD1871A8B572E004E0798 /* newMessage.png */; };
-		847E39891A8A9A4B00893FC2 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 847E39881A8A9A4B00893FC2 /* screen.png */; };
+		01B8E78E2A6513C6005BC928 /* TMFloatingButton in Frameworks */ = {isa = PBXBuildFile; productRef = 01B8E78D2A6513C6005BC928 /* TMFloatingButton */; };
 		8484DB461A8A089B004C4E5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB451A8A089B004C4E5E /* main.m */; };
 		8484DB491A8A089B004C4E5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB481A8A089B004C4E5E /* AppDelegate.m */; };
 		8484DB4F1A8A089B004C4E5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8484DB4D1A8A089B004C4E5E /* Main.storyboard */; };
@@ -31,18 +15,9 @@
 		8484DB541A8A089B004C4E5E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8484DB521A8A089B004C4E5E /* LaunchScreen.xib */; };
 		8484DB601A8A089B004C4E5E /* FloatingButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB5F1A8A089B004C4E5E /* FloatingButtonTests.m */; };
 		8484DB6F1A8A0A88004C4E5E /* TMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484DB6E1A8A0A88004C4E5E /* TMTableViewController.m */; };
-		8484DB711A8A157A004C4E5E /* buttonImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8484DB701A8A157A004C4E5E /* buttonImages.xcassets */; };
-		84B7039C1A935F04006E07E1 /* customText.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B7039B1A935F04006E07E1 /* customText.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6912B2CB26C83F19008191ED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8484DB381A8A089B004C4E5E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 847A38111DCF3A3600CF890A;
-			remoteInfo = TMFloatingButton;
-		};
 		8484DB5A1A8A089B004C4E5E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8484DB381A8A089B004C4E5E /* Project object */;
@@ -53,12 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6912B2CD26C84269008191ED /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		6912B2CE26C84269008191ED /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		847A38121DCF3A3600CF890A /* TMFloatingButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMFloatingButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		847A38161DCF3A3700CF890A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		847A38221DCF3A3700CF890A /* TMFloatingButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMFloatingButtonTests.m; sourceTree = "<group>"; };
-		847A38241DCF3A3700CF890A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01B8E78B2A6513B3005BC928 /* TMFloatingButton */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TMFloatingButton; path = ..; sourceTree = "<group>"; };
 		847AD1841A8B572E004E0798 /* favorites1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites1.png; sourceTree = "<group>"; };
 		847AD1851A8B572E004E0798 /* favorites2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites2.png; sourceTree = "<group>"; };
 		847AD1861A8B572E004E0798 /* modeEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modeEdit.png; sourceTree = "<group>"; };
@@ -75,33 +45,17 @@
 		8484DB591A8A089B004C4E5E /* FloatingButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloatingButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8484DB5E1A8A089B004C4E5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8484DB5F1A8A089B004C4E5E /* FloatingButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FloatingButtonTests.m; sourceTree = "<group>"; };
-		8484DB6A1A8A08FE004C4E5E /* TMFloatingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMFloatingButton.h; sourceTree = "<group>"; };
-		8484DB6B1A8A08FE004C4E5E /* TMFloatingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMFloatingButton.m; sourceTree = "<group>"; };
 		8484DB6D1A8A0A88004C4E5E /* TMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTableViewController.h; sourceTree = "<group>"; };
 		8484DB6E1A8A0A88004C4E5E /* TMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTableViewController.m; sourceTree = "<group>"; };
-		8484DB701A8A157A004C4E5E /* buttonImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = buttonImages.xcassets; sourceTree = "<group>"; };
 		84B7039B1A935F04006E07E1 /* customText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customText.png; sourceTree = "<group>"; };
-		84BB486B1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TMDictionaryAtributes.h"; sourceTree = "<group>"; };
-		84BB486C1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TMDictionaryAtributes.m"; sourceTree = "<group>"; };
-		84BB486E1CA4A1A800C560AC /* TMFloatingButtonState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMFloatingButtonState.h; sourceTree = "<group>"; };
-		84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMFloatingButtonState.m; sourceTree = "<group>"; };
-		84BB48711CA4A25D00C560AC /* TMFloatingButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMFloatingButtonView.h; sourceTree = "<group>"; };
-		84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMFloatingButtonView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		847A380E1DCF3A3600CF890A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8484DB3D1A8A089B004C4E5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				847A38381DCF3BA100CF890A /* TMFloatingButton.framework in Frameworks */,
+				01B8E78E2A6513C6005BC928 /* TMFloatingButton in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,25 +69,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		847A38211DCF3A3700CF890A /* TMFloatingButtonTests */ = {
+		01B8E78A2A6513B3005BC928 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				847A38221DCF3A3700CF890A /* TMFloatingButtonTests.m */,
-				847A38241DCF3A3700CF890A /* Info.plist */,
+				01B8E78B2A6513B3005BC928 /* TMFloatingButton */,
 			);
-			path = TMFloatingButtonTests;
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		01B8E78C2A6513C6005BC928 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8484DB371A8A089B004C4E5E = {
 			isa = PBXGroup;
 			children = (
-				6912B2CD26C84269008191ED /* LICENSE */,
-				6912B2CE26C84269008191ED /* README.md */,
-				8484DB691A8A08FE004C4E5E /* TMFloatingButton */,
+				01B8E78A2A6513B3005BC928 /* Packages */,
 				8484DB421A8A089B004C4E5E /* FloatingButton */,
 				8484DB5C1A8A089B004C4E5E /* FloatingButtonTests */,
-				847A38211DCF3A3700CF890A /* TMFloatingButtonTests */,
 				8484DB411A8A089B004C4E5E /* Products */,
+				01B8E78C2A6513C6005BC928 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,7 +100,6 @@
 			children = (
 				8484DB401A8A089B004C4E5E /* FloatingButton.app */,
 				8484DB591A8A089B004C4E5E /* FloatingButtonTests.xctest */,
-				847A38121DCF3A3600CF890A /* TMFloatingButton.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,58 +151,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8484DB691A8A08FE004C4E5E /* TMFloatingButton */ = {
-			isa = PBXGroup;
-			children = (
-				8484DB6A1A8A08FE004C4E5E /* TMFloatingButton.h */,
-				8484DB6B1A8A08FE004C4E5E /* TMFloatingButton.m */,
-				84BB486E1CA4A1A800C560AC /* TMFloatingButtonState.h */,
-				84BB486F1CA4A1A800C560AC /* TMFloatingButtonState.m */,
-				84BB486B1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.h */,
-				84BB486C1CA4A17700C560AC /* UILabel+TMDictionaryAtributes.m */,
-				84BB48711CA4A25D00C560AC /* TMFloatingButtonView.h */,
-				84BB48721CA4A25D00C560AC /* TMFloatingButtonView.m */,
-				8484DB701A8A157A004C4E5E /* buttonImages.xcassets */,
-				847A38161DCF3A3700CF890A /* Info.plist */,
-			);
-			path = TMFloatingButton;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		847A380F1DCF3A3600CF890A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				847A38361DCF3AE400CF890A /* TMFloatingButtonView.h in Headers */,
-				847A38301DCF3AD200CF890A /* TMFloatingButton.h in Headers */,
-				847A38341DCF3ADF00CF890A /* UILabel+TMDictionaryAtributes.h in Headers */,
-				847A38321DCF3AD800CF890A /* TMFloatingButtonState.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		847A38111DCF3A3600CF890A /* TMFloatingButton */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 847A382D1DCF3A3700CF890A /* Build configuration list for PBXNativeTarget "TMFloatingButton" */;
-			buildPhases = (
-				847A380D1DCF3A3600CF890A /* Sources */,
-				847A380E1DCF3A3600CF890A /* Frameworks */,
-				847A380F1DCF3A3600CF890A /* Headers */,
-				847A38101DCF3A3600CF890A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TMFloatingButton;
-			productName = TMFloatingButton;
-			productReference = 847A38121DCF3A3600CF890A /* TMFloatingButton.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		8484DB3F1A8A089B004C4E5E /* FloatingButton */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8484DB631A8A089B004C4E5E /* Build configuration list for PBXNativeTarget "FloatingButton" */;
@@ -257,9 +165,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				6912B2CC26C83F19008191ED /* PBXTargetDependency */,
 			);
 			name = FloatingButton;
+			packageProductDependencies = (
+				01B8E78D2A6513C6005BC928 /* TMFloatingButton */,
+			);
 			productName = FloatingButton;
 			productReference = 8484DB401A8A089B004C4E5E /* FloatingButton.app */;
 			productType = "com.apple.product-type.application";
@@ -288,12 +198,10 @@
 		8484DB381A8A089B004C4E5E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1250;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Ihor Shevchuk";
 				TargetAttributes = {
-					847A38111DCF3A3600CF890A = {
-						CreatedOnToolsVersion = 7.3.1;
-					};
 					8484DB3F1A8A089B004C4E5E = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -318,36 +226,18 @@
 			targets = (
 				8484DB3F1A8A089B004C4E5E /* FloatingButton */,
 				8484DB581A8A089B004C4E5E /* FloatingButtonTests */,
-				847A38111DCF3A3600CF890A /* TMFloatingButton */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		847A38101DCF3A3600CF890A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				847A38391DCF3C0500CF890A /* buttonImages.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8484DB3E1A8A089B004C4E5E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8484DB4F1A8A089B004C4E5E /* Main.storyboard in Resources */,
-				847E39891A8A9A4B00893FC2 /* screen.png in Resources */,
-				847AD18A1A8B572E004E0798 /* modeEdit.png in Resources */,
-				84B7039C1A935F04006E07E1 /* customText.png in Resources */,
 				8484DB541A8A089B004C4E5E /* LaunchScreen.xib in Resources */,
-				6912B2CF26C84269008191ED /* LICENSE in Resources */,
-				6912B2D026C84269008191ED /* README.md in Resources */,
-				847AD1891A8B572E004E0798 /* favorites2.png in Resources */,
 				8484DB511A8A089B004C4E5E /* Images.xcassets in Resources */,
-				847AD18B1A8B572E004E0798 /* newMessage.png in Resources */,
-				8484DB711A8A157A004C4E5E /* buttonImages.xcassets in Resources */,
-				847AD1881A8B572E004E0798 /* favorites1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,17 +251,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		847A380D1DCF3A3600CF890A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				847A38331DCF3ADC00CF890A /* TMFloatingButtonState.m in Sources */,
-				847A38371DCF3AE800CF890A /* TMFloatingButtonView.m in Sources */,
-				847A38351DCF3AE200CF890A /* UILabel+TMDictionaryAtributes.m in Sources */,
-				847A38311DCF3AD500CF890A /* TMFloatingButton.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8484DB3C1A8A089B004C4E5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -393,11 +272,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6912B2CC26C83F19008191ED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 847A38111DCF3A3600CF890A /* TMFloatingButton */;
-			targetProxy = 6912B2CB26C83F19008191ED /* PBXContainerItemProxy */;
-		};
 		8484DB5B1A8A089B004C4E5E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8484DB3F1A8A089B004C4E5E /* FloatingButton */;
@@ -425,63 +299,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		847A38291DCF3A3700CF890A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 2;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TMFloatingButton/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shevchuk.TMFloatingButton;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		847A382A1DCF3A3700CF890A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TMFloatingButton/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shevchuk.TMFloatingButton;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		8484DB611A8A089B004C4E5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -660,15 +477,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		847A382D1DCF3A3700CF890A /* Build configuration list for PBXNativeTarget "TMFloatingButton" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				847A38291DCF3A3700CF890A /* Debug */,
-				847A382A1DCF3A3700CF890A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		8484DB3B1A8A089B004C4E5E /* Build configuration list for PBXProject "FloatingButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -697,6 +505,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		01B8E78D2A6513C6005BC928 /* TMFloatingButton */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TMFloatingButton;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8484DB381A8A089B004C4E5E /* Project object */;
 }

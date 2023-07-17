@@ -1,12 +1,25 @@
 # TMFloatingButton
-With this simple project you can add and design your material round button like in android apps.
+With this simple project you can add and design your material round button like in Android apps.
 
 ![](https://raw.github.com/IhorShevchuk/TMFloatingButton/master/FloatingButton/screen.png)
 
 ## Installation
-1) Add Folder `TMFloatingButton` to project
 
-2) Import file `TMFloatingButton.h` to files where buttons will be shown
+### Swift Package Manager
+
+1. Add this package as dependcy
+```swift
+    .package(url: "https://github.com/IhorShevchuk/TMFloatingButton", , from: "1.2.0")
+```
+2. Import `TMFloatingButton`
+```swift
+import TMFloatingButton
+```
+
+### Manual
+
+1. Add Folder `TMFloatingButton` to project
+1. Import file `TMFloatingButton.h` to files where buttons will be shown
 
 ### Requirements
 * Xcode 11 or higher
@@ -14,15 +27,15 @@ With this simple project you can add and design your material round button like 
 * ARC
 
 ## Usage
-1) In some method (ex:`viewDidLoad`) init `TMFloatingButton` object and add it to view where it should appear using next code:
+1. In some method (ex:`viewDidLoad`) init `TMFloatingButton` object and add it to view where it should appear using next code:
 ```objectivec
   TMFloatingButton *floatingModeEditButton = [[TMFloatingButton alloc] initWithSuperView: self.navigationController.view];
 ```
-2) Apply one of predifined styles using next code:
+2. Apply one of predifined styles using next code:
 ```objectivec
  [TMFloatingButton addModeEditStyleToButton:floatingModeEditButton];
 ```
-3) Add `target` and `selector` using next code:
+3. Add `target` and `selector` using next code:
 ```objectivec
  [floatingModeEditButton addTarget:self action:@selector(modeEditAction) forControlEvents:UIControlEventTouchUpInside];
 ```
@@ -86,6 +99,7 @@ You can simply show `UIActivityIndicatorView` using this code:
 See example code for more details
 ##### TODO
 - ~~Ability to move button on long tap~~
+- Support SwiftUI
 
 ## License
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR

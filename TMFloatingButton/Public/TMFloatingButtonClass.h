@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import <TMFloatingButton/TMFloatingButtonState.h>
+#import <TMFloatingButtonState.h>
 
 FOUNDATION_EXPORT NSString *const TMFloatingButtonSavedStateName;
 FOUNDATION_EXPORT NSString *const TMFloatingButtonNotSavedStateName;
@@ -36,7 +36,7 @@ static const CGFloat kTMFloatingButtonDefaultSize = 60.0f;
 static const CGFloat kTMFloatingButtonDefaultMargin = 15.0f;
 
 
-//button that can animation hide and change different view stetes
+// button that can animation hide and change different view stetes
 IB_DESIGNABLE
 @interface TMFloatingButton : UIButton
 /**
@@ -50,7 +50,11 @@ IB_DESIGNABLE
  *
  *  @return Inited and Added to superView TMFloatingButton object
  */
-- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andHideDirection:(FloatingButtonHideDirection)hideDirection andSuperView:(UIView *)superView;
+- (instancetype)initWithWidth:(CGFloat)width
+                   withMargin:(CGFloat)margin
+                  andPosition:(FloatingButtonPosition)postion
+             andHideDirection:(FloatingButtonHideDirection)hideDirection
+                 andSuperView:(UIView *)superView;
 /**
  *  init's TMFloatingButton object after this you can apply styles
  *
@@ -68,7 +72,9 @@ IB_DESIGNABLE
  *
  *  @return Inited and Added to superView TMFloatingButton object
  */
-- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andSuperView:(UIView *)superView;
+- (instancetype)initWithWidth:(CGFloat)width
+                   withMargin:(CGFloat)margin
+                 andSuperView:(UIView *)superView;
 /**
  *  init's TMFloatingButton object after this you can apply styles
  *
@@ -79,7 +85,10 @@ IB_DESIGNABLE
  *
  *  @return Inited and Added to superView TMFloatingButton object
  */
-- (instancetype)initWithWidth:(CGFloat)width withMargin:(CGFloat)margin andPosition:(FloatingButtonPosition)postion andSuperView:(UIView *)superView;
+- (instancetype)initWithWidth:(CGFloat)width
+                   withMargin:(CGFloat)margin
+                  andPosition:(FloatingButtonPosition)postion
+                 andSuperView:(UIView *)superView;
 
 /**
  *  Set this property to NO if need Square button, or YES to Round Button
@@ -93,7 +102,7 @@ IB_DESIGNABLE
  *  Size of the button it is square thats why we use one value
  */
 
-//TODO: Change Frame when next properties changed
+// TODO: Change Frame when next properties changed
 @property (assign, nonatomic) CGFloat size;
 /**
  *  Margin from sides of Superview
@@ -108,7 +117,7 @@ IB_DESIGNABLE
  */
 @property (assign, nonatomic) FloatingButtonPosition position;
 /**
- *  
+ *
  */
 @property (nonatomic, assign) BOOL canBeMoved;
 
@@ -134,7 +143,7 @@ IB_DESIGNABLE
  *
  *  @param animate YES - to START animate and NO to STOP
  */
-- (void)animateActivityIndicatorStart:(BOOL)animate; //YES to start & NO to stop
+- (void)animateActivityIndicatorStart:(BOOL)animate;  // YES to start & NO to stop
 /**
  *  Adds state(style) of Button
  *
@@ -142,7 +151,8 @@ IB_DESIGNABLE
  *  @param stateName State Name to SET this state in other method
  */
 #pragma mark - STATES MANAGEMENT
-- (void)addState:(TMFloatingButtonState *)state forName:(NSString *)stateName;
+- (void)addState:(TMFloatingButtonState *)state
+         forName:(NSString *)stateName;
 
 /**
  *  Creates TMFloatingButtonState object and applies if need
@@ -154,7 +164,12 @@ IB_DESIGNABLE
  *  @param stateName  State Name to SET this state in other method
  *  @param applyNow   YES if apply state immediatly or NO to not
  */
-- (void)addStateWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow;
+- (void)addStateWithIcon:(UIImage *)icon
+                 andText:(NSString *)text
+          withAttributes:(NSDictionary *)attributes
+      andBackgroundColor:(UIColor *)bgColor
+                 forName:(NSString *)stateName
+           applyRightNow:(BOOL)applyNow;
 /**
  *  Creates TMFloatingButtonState object and applies if need
  *
@@ -164,7 +179,11 @@ IB_DESIGNABLE
  *  @param stateName  State Name to SET this state in other method
  *  @param applyNow   YES if apply state immediatly or NO to not
  */
-- (void)addStateWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow;
+- (void)addStateWithText:(NSString *)text
+          withAttributes:(NSDictionary *)attributes
+      andBackgroundColor:(UIColor *)bgColor
+                 forName:(NSString *)stateName
+           applyRightNow:(BOOL)applyNow;
 /**
  *  Creates TMFloatingButtonState object and applies if need
  *
@@ -173,7 +192,10 @@ IB_DESIGNABLE
  *  @param stateName State Name to SET this state in other method
  *  @param applyNow  YES if apply state immediatly or NO to not
  */
-- (void)addStateWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow;
+- (void)addStateWithIcon:(UIImage *)icon
+      andBackgroundColor:(UIColor *)bgColor
+                 forName:(NSString *)stateName
+           applyRightNow:(BOOL)applyNow;
 /**
  *  Creates TMFloatingButtonState object and applies if need
  *
@@ -182,14 +204,18 @@ IB_DESIGNABLE
  *  @param stateName State Name to SET this state in other method
  *  @param applyNow  YES if apply state immediatly or NO to not
  */
-- (void)addStateWithView:(UIView *)view andBackgroundColor:(UIColor *)bgColor forName:(NSString *)stateName applyRightNow:(BOOL)applyNow;
+- (void)addStateWithView:(UIView *)view
+      andBackgroundColor:(UIColor *)bgColor
+                 forName:(NSString *)stateName
+           applyRightNow:(BOOL)applyNow;
 /**
  *  Adds state(style) of Button and apply it immediately
  *
  *  @param state     FloatingButtonState object
  *  @param stateName State Name to SET this state in other method
  */
-- (void)addAndApplyState:(TMFloatingButtonState *)state forName:(NSString *)stateName;
+- (void)addAndApplyState:(TMFloatingButtonState *)state
+                 forName:(NSString *)stateName;
 
 #pragma mark - STYLES
 /**

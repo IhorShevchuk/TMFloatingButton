@@ -12,18 +12,20 @@
 
 @implementation TMFloatingButtonState
 
-- (instancetype)initWithView:(TMFloatingButtonView *)view andBackgroundColor:(UIColor *)bgColor {
+- (instancetype)initWithView:(TMFloatingButtonView *)view andBackgroundColor:(UIColor *)bgColor
+{
     self = [super init];
     if (self)
     {
         _view = view;
         _bgColor = bgColor;
     }
-    
+
     return self;
 }
 
-- (instancetype)initWithView:(TMFloatingButtonView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+- (instancetype)initWithView:(TMFloatingButtonView *)view andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button
+{
     self = [super init];
     if (self)
     {
@@ -35,7 +37,8 @@
     return self;
 }
 
-- (instancetype)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+- (instancetype)initWithText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button
+{
     self = [self initWithIcon:nil andText:text withAttributes:attributes andBackgroundColor:bgColor forButton:button];
     return self;
 }
@@ -46,17 +49,18 @@
     return self;
 }
 
-- (instancetype)initWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button {
+- (instancetype)initWithIcon:(UIImage *)icon andText:(NSString *)text withAttributes:(NSDictionary *)attributes andBackgroundColor:(UIColor *)bgColor forButton:(TMFloatingButton *)button
+{
     TMFloatingButtonView *stateView = nil;
-    if(text != nil && icon != nil)
+    if (text != nil && icon != nil)
     {
         stateView = [[TMFloatingButtonView alloc] initWithIcon:icon andText:text withAttributes:attributes andBackgroundColor:bgColor];
     }
-    else if(text != nil)
+    else if (text != nil)
     {
         stateView = [[TMFloatingButtonView alloc] initWithText:text withAttributes:attributes andBackgroundColor:bgColor];
     }
-    else if(icon != nil)
+    else if (icon != nil)
     {
         stateView = [[TMFloatingButtonView alloc] initWithIcon:icon andBackgroundColor:bgColor];
     }

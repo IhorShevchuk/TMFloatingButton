@@ -13,35 +13,34 @@
 - (void)tmApplyAttributes:(NSDictionary *)attributes
 {
     NSMutableDictionary *attributesToSet;
-    if(attributes)
+    if (attributes)
     {
         attributesToSet = [attributes mutableCopy];
     }
     else
     {
-        attributesToSet = [[NSMutableDictionary alloc]init];
+        attributesToSet = [[NSMutableDictionary alloc] init];
     }
-    if(!attributesToSet[NSFontAttributeName])
+    if (!attributesToSet[NSFontAttributeName])
     {
         attributesToSet[NSFontAttributeName] = [UIFont systemFontOfSize:11];
     }
-    if(!attributesToSet[NSForegroundColorAttributeName])
+    if (!attributesToSet[NSForegroundColorAttributeName])
     {
-        attributesToSet[NSForegroundColorAttributeName] = [UIColor whiteColor];;
+        attributesToSet[NSForegroundColorAttributeName] = [UIColor whiteColor];
     }
-    
-    if(!attributesToSet[NSParagraphStyleAttributeName])
+
+    if (!attributesToSet[NSParagraphStyleAttributeName])
     {
         NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
         paragraphStyle.alignment = NSTextAlignmentCenter;
-        attributesToSet[NSParagraphStyleAttributeName] = paragraphStyle;;
+        attributesToSet[NSParagraphStyleAttributeName] = paragraphStyle;
     }
-    
-    
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:self.text attributes:attributesToSet];
-    
+
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.text attributes:attributesToSet];
+
     self.attributedText = attributedString;
-    
+
     self.minimumScaleFactor = 0.5;
     self.numberOfLines = 0;
 }
